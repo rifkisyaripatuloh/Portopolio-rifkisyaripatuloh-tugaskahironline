@@ -90,7 +90,7 @@
 
     .about-img img {
       width: 250px;
-      height: 320px;
+      height: 300px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 10px 25px rgba(79,70,229,0.25);
