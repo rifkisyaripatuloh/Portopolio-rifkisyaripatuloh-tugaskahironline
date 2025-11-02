@@ -90,7 +90,7 @@
 
     .about-img img {
       width: 220px;
-      height: 320px;
+      height: 280px;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 10px 25px rgba(79,70,229,0.25);
@@ -629,6 +629,8 @@ body.dark-mode h3::after {
 
       @media (max-width: 768px) {
       #menu-toggle { display: block; }
+
+      
       nav ul {
         position: absolute;
         top: 65px;
@@ -643,6 +645,11 @@ body.dark-mode h3::after {
       }
       #about .btn-primary{
         margin-bottom: 10px;
+      }
+
+      .about-img img {
+      width: 170px;
+      height: 200px;
       }
       nav ul.active {
         display: flex;
