@@ -25,11 +25,17 @@
 
 <!-- ================= NAVBAR ================= -->
 <nav class="fixed top-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-slate-900/70 shadow-sm">
-  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
-    <h1 class="text-lg font-semibold flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-blue-400 bg-clip-text text-transparent">
-      <i class="fa-solid fa-code"></i> Rifki Syarip
-    </h1>
+<div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+
+<!-- LOGO -->
+<h1 class="text-lg font-semibold flex items-center gap-2 
+bg-gradient-to-r from-indigo-500 to-blue-400 
+bg-clip-text text-transparent">
+
+<i class="fa-solid fa-code"></i> Rifki Syarip
+
+</h1>
 
 <!-- MENU DESKTOP -->
 <ul class="hidden md:flex gap-8 font-medium items-center">
@@ -70,28 +76,89 @@ Contact
 </li>
 
 </ul>
+
+<!-- RIGHT SIDE -->
+<div class="flex items-center gap-4">
+
+<!-- DARK MODE TOGGLE -->
+<label class="flex items-center cursor-pointer">
+
+<input type="checkbox" id="toggleDark" class="sr-only">
+
+<div class="w-14 h-7 bg-slate-300 dark:bg-slate-700 rounded-full 
+transition duration-300 relative flex items-center px-1"
+id="switchBg">
+
+<div id="dot"
+class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full 
+transition-all duration-300 flex items-center justify-center text-[10px]">
+
+<span id="iconSun">☀️</span>
+<span id="iconMoon" class="hidden">🌙</span>
+
+</div>
+
+</div>
+
+</label>
+
+<!-- HAMBURGER -->
 <button id="menu-btn" class="md:hidden text-2xl text-slate-700 dark:text-white">
 <i class="fa fa-bars"></i>
 </button>
 
-<label class="flex items-center cursor-pointer">
-  
-  <input type="checkbox" id="toggleDark" class="sr-only">
+</div>
 
-  <div class="w-14 h-7 bg-slate-300 dark:bg-slate-700 rounded-full 
-              transition duration-300 relative flex items-center px-1"
-       id="switchBg">
+</div>
 
-    <!-- BULATAN DENGAN IKON -->
-    <div id="dot"
-      class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-all duration-300 flex items-center justify-center text-[10px]">
-      <span id="iconSun">☀️</span>
-      <span id="iconMoon" class="hidden">🌙</span>
-    </div>
 
-  </div>
+<!-- MOBILE MENU -->
+<div id="mobile-menu"
+class="hidden md:hidden bg-white dark:bg-slate-900 
+border-t border-slate-200 dark:border-slate-700">
 
-</label>
+<ul class="flex flex-col gap-4 p-6 font-medium">
+
+<li>
+<a href="#about" class="flex items-center gap-2 hover:text-indigo-500">
+<i class="fa fa-user text-slate-500 dark:text-indigo-500"></i>
+About
+</a>
+</li>
+
+<li>
+<a href="#resume" class="flex items-center gap-2 hover:text-indigo-500">
+<i class="fa fa-briefcase text-slate-500 dark:text-indigo-500"></i>
+Resume
+</a>
+</li>
+
+<li>
+<a href="#skills" class="flex items-center gap-2 hover:text-indigo-500">
+<i class="fa fa-star text-slate-500 dark:text-indigo-500"></i>
+Skills
+</a>
+</li>
+
+<li>
+<a href="#portfolio" class="flex items-center gap-2 hover:text-indigo-500">
+<i class="fa fa-image text-slate-500 dark:text-indigo-500"></i>
+Portfolio
+</a>
+</li>
+
+<li>
+<a href="#contact" class="flex items-center gap-2 hover:text-indigo-500">
+<i class="fa fa-envelope text-slate-500 dark:text-indigo-500"></i>
+Contact
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
   </div>
 </nav>
 <!-- ================= ABOUT ================= -->
@@ -701,11 +768,16 @@ const toggle = document.getElementById("toggleDark");
 const dot = document.getElementById("dot");
 const iconSun = document.getElementById("iconSun");
 const iconMoon = document.getElementById("iconMoon");
+
+
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
+
 menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
+mobileMenu.classList.toggle("hidden");
 });
+
+
 if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark");
   toggle.checked = true;
