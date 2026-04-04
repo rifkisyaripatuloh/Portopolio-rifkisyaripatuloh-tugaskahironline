@@ -1,292 +1,729 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio - Rifki Syarip</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Rifki Syarip</title>
 
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
 
+  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- ICON -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-
-  <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
-  
-  <nav>
-    <h1>Rifki Syarip</h1>
+<body class="font-[Poppins] bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-200 transition duration-300">
 
-    <button id="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-slate-900/70 shadow-sm">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <h1 class="text-lg font-semibold flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-blue-400 bg-clip-text text-transparent">
+      <i class="fa-solid fa-code"></i> Rifki Syarip
+    </h1>
 
-    <button id="toggleDark"><i class="fa-solid fa-moon"></i></button>
-  </nav>
+   <ul class="hidden md:flex gap-8 font-medium items-center">
 
+<li>
+<a href="#about" class="hover:text-indigo-500 flex items-center gap-1 transition">
+<i class="fa fa-user text-slate-500 dark:text-indigo-500"></i>
+About
+</a>
+</li>
 
-  <section id="about">
-    <div class="about-img" data-aos="zoom-in">
-      <img src="./img/foto-rifki.jpeg" alt="Rifki Syaripatuloh">
-    </div>
-    <div class="about-text" data-aos="fade-left">
-      <h2>Rifki Syaripatuloh</h2>
-      <P>
-    Lulusan Teknik Informatika yang memiliki minat dalam pengembangan aplikasi berbasis web dan sistem informasi. 
-Terbiasa membangun dan mengelola aplikasi web, mendukung kebutuhan teknis, serta bekerja secara kolaboratif dalam tim. 
-Memiliki ketertarikan pada pengembangan solusi digital yang fungsional, komunikatif dalam menyampaikan ide, 
-dan terus berupaya mengembangkan keterampilan di bidang teknologi.
-</P>
-      <div class="btn-group" data-aos="fade-up" data-aos-delay="200">
-        <a href="#resume" class="btn-primary">Lihat Resume</a>
-        <a href="#portfolio" class="btn-outline">Lihat Portofolio</a>
-      </div>
-    </div>
-  </section>
+<li>
+<a href="#resume" class="hover:text-indigo-500 flex items-center gap-1 transition">
+<i class="fa fa-briefcase text-slate-500 dark:text-indigo-500"></i>
+Resume
+</a>
+</li>
 
- 
-  <section id="resume" data-aos="fade-up">
-    <h3 data-aos="fade-down">Riwayat Pendidikan, Pengalaman & Organisasi</h3>
+<li>
+<a href="#skills" class="hover:text-indigo-500 flex items-center gap-1 transition">
+<i class="fa fa-star text-slate-500 dark:text-indigo-500"></i>
+Skills
+</a>
+</li>
 
-    <div class="timeline">
-  
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-icon bg-edu"><i class="bi bi-mortarboard-fill"></i></div>
-        <div class="timeline-content">
-          <img src="./img/unper.png" alt="Universitas Perjuangan" class="timeline-img">
-          <h4>Universitas Perjuangan</h4>
-          <p class="timeline-date">2021 – 2025</p>
-          <p>Teknik Informatika | IPK: 3.74</p>
-        </div>
-      </div>
+<li>
+<a href="#portfolio" class="hover:text-indigo-500 flex items-center gap-1 transition">
+<i class="fa fa-image text-slate-500 dark:text-indigo-500"></i>
+Portfolio
+</a>
+</li>
 
+<li>
+<a href="#contact" class="hover:text-indigo-500 flex items-center gap-1 transition">
+<i class="fa fa-envelope text-slate-500 dark:text-indigo-500"></i>
+Contact
+</a>
+</li>
 
-      <div class="timeline-item" data-aos="fade-left">
-        <div class="timeline-icon bg-exp"><i class="bi bi-laptop"></i></div>
-        <div class="timeline-content">
-          <img src="/img/MSIB.png" alt="MSIB" class="timeline-img">
-          <h4>Fullstack Web Developer – MSIB Batch 6</h4>
-          <p class="timeline-date">Desember 2023 – April 2024</p>
-          <p>Mendalami pengembangan website berbasis Laravel & API.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-        <div class="timeline-icon bg-exp"><i class="bi bi-laptop"></i></div>
-        <div class="timeline-content">
-          <img src="./img/diskominfo.png" alt="Dinas Kominfo Tasikmalaya" class="timeline-img">
-          <h4>Web Developer – Magang Diskominfo Tasikmalaya</h4>
-          <p class="timeline-date">April 2025 – Juni 2025</p>
-       <ul>
-  <li>Mengembangkan dan memperbaiki tampilan antarmuka website pemerintahan menggunakan React.js.</li>
-  <li>Mengimplementasikan desain responsif agar aplikasi web dapat diakses dengan optimal di berbagai perangkat.</li>
-  <li>Mendukung pembuatan dokumentasi teknis untuk kebutuhan pemeliharaan dan pengembangan sistem lanjutan.</li>
-  <li>Menerapkan autentikasi berbasis JWT (JSON Web Token) menggunakan Laravel untuk mengamankan proses login dan akses API.</li>
 </ul>
+<label class="flex items-center cursor-pointer">
+  
+  <input type="checkbox" id="toggleDark" class="sr-only">
+
+  <div class="w-14 h-7 bg-slate-300 dark:bg-slate-700 rounded-full 
+              transition duration-300 relative flex items-center px-1"
+       id="switchBg">
+
+    <!-- BULATAN DENGAN IKON -->
+    <div id="dot"
+      class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-all duration-300 flex items-center justify-center text-[10px]">
+      <span id="iconSun">☀️</span>
+      <span id="iconMoon" class="hidden">🌙</span>
+    </div>
+
+  </div>
+
+</label>
+  </div>
+</nav>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="pt-32 pb-20 px-6 
+bg-gradient-to-br from-indigo-100 via-purple-100 to-blue-100 
+dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- FOTO -->
+    <div class="flex justify-center md:justify-center" data-aos="zoom-in">
+      <div class="relative group">
+
+        <!-- SOFT GLOW -->
+        <div class="absolute inset-0 rounded-full 
+        bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 
+        blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
+
+        <!-- FOTO -->
+        <img src="./img/foto-rifki.jpeg"
+          class="relative w-64 h-64 md:w-72 md:h-72 object-cover rounded-full 
+          shadow-xl border-[6px] border-white dark:border-slate-800 
+          group-hover:scale-105 transition duration-300">
+      </div>
+    </div>
+
+    <!-- TEXT -->
+    <div data-aos="fade-left">
+
+      <!-- NAME -->
+      <h2 class="text-4xl font-bold leading-tight mb-3">
+        Hi, I'm 
+        <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+          Rifki Syaripatuloh
+        </span>
+      </h2>
+
+      <!-- TITLE -->
+      <h3 class="text-lg font-medium text-indigo-500 mb-5 flex items-center gap-2">
+        <i class="fa fa-code"></i> Web Developer • System Analyst
+      </h3>
+<!-- DESC -->
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+  Lulusan <b>Teknik Informatika</b> yang berfokus pada pengembangan aplikasi web dan sistem informasi. 
+  Berpengalaman menggunakan <b>Laravel, React, dan REST API</b> untuk membangun solusi digital yang efisien dan scalable.
+  <br><br>
+  Memiliki kemampuan dalam <b>administrasi dan pengolahan data</b> menggunakan Microsoft Office (Word, Excel, Access) 
+  untuk mendukung dokumentasi dan manajemen sistem.
+  <br><br>
+  Terbiasa bekerja dalam tim, komunikatif, serta berorientasi pada kualitas dan pengalaman pengguna.
+</p>
+
+      <!-- SKILL BADGES -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="px-4 py-1 text-sm rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-500/20">
+          Laravel
+        </span>
+        <span class="px-4 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-500/20">
+          React
+        </span>
+        <span class="px-4 py-1 text-sm rounded-full bg-purple-100 text-purple-600 dark:bg-purple-500/20">
+          REST API
+        </span>
+        <span class="px-4 py-1 text-sm rounded-full bg-green-100 text-green-600 dark:bg-green-500/20">
+          System Analysis
+        </span>
+        <span class="px-4 py-1 text-sm rounded-full bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20">
+          Microsoft Office
+        </span>
+      </div>
+
+      <!-- HIGHLIGHT INFO -->
+      <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
+
+        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
+          <i class="fa fa-file text-indigo-500"></i>
+          Administrasi Data
         </div>
-      </div>
 
- 
-      <div class="timeline-item" data-aos="fade-right">
-        <div class="timeline-icon bg-org"><i class="bi bi-people-fill"></i></div>
-        <div class="timeline-content">
-          <img src="./img/cc.png" alt="Computer Club" class="timeline-img">
-          <h4>Computer Club</h4>
-          <p class="timeline-date">2021 – 2023</p>
-        <ul>
-    <li>Bertanggung jawab sebagai koordinator dalam perencanaan kegiatan organisasi.</li>
-    <li>Memastikan kegiatan berjalan sesuai rencana dan jadwal yang telah ditetapkan.</li>
-    <li>Mengoordinasikan tim serta pelaksanaan program kerja hingga kegiatan selesai.</li>
-  </ul>
+        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
+          <i class="fa fa-chart-line text-green-500"></i>
+          Data Management
         </div>
+
+        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
+          <i class="fa fa-users text-blue-500"></i>
+          Team Collaboration
+        </div>
+
+        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
+          <i class="fa fa-clock text-purple-500"></i>
+          Time Management
+        </div>
+
       </div>
-    </div>
-  </section>
 
-<section id="skills" data-aos="fade-up"> 
-  <h3 data-aos="fade-down">Skill & Kemampuan</h3>
-  <div class="skills-container">
+      <!-- BUTTON -->
+      <div class="mt-8 flex flex-wrap gap-4">
 
-    <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
-      <div class="skill-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png" alt="Web Development">
-        <h4>Web Development</h4>
+        <a href="#resume"
+          class="px-6 py-3 rounded-full bg-indigo-500 text-white shadow-md 
+          hover:bg-indigo-600 hover:scale-105 transition flex items-center gap-2">
+          <i class="fa fa-briefcase"></i> View Resume
+        </a>
+
+        <a href="#portfolio"
+          class="px-6 py-3 rounded-full border border-indigo-500 text-indigo-500 
+          hover:bg-indigo-500 hover:text-white hover:scale-105 transition flex items-center gap-2">
+          <i class="fa fa-image"></i> View Portfolio
+        </a>
+
       </div>
-      <p>Laravel • CodeIgniter • RESTful API • React</p>
-    </div>
 
-    <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
-      <div class="skill-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/226/226770.png" alt="Android Development">
-        <h4>Android Development</h4>
-      </div>
-      <p>Kotlin</p>
-    </div>
-
-    <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
-      <div class="skill-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Analisis Sistem">
-        <h4>Analisis Sistem</h4>
-      </div>
-      <p>SPBE • Pengujian API • Dokumentasi Teknis</p>
-    </div>
-
-    <!-- EDITING -->
-    <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
-      <div class="skill-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png" alt="Editing">
-        <h4>Editing & Multimedia</h4>
-      </div>
-      <p>Adobe Premiere Pro • After Effects</p>
-    </div>
-
-    <!-- OFFICE -->
-    <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
-      <div class="skill-header">
-    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Administrasi">
-
-        <h4>Administrasi & Office</h4>
-      </div>
-      <p>Microsoft Word • Dokumentasi • Administrasi Data</p>
     </div>
 
   </div>
 </section>
-<section id="portfolio" data-aos="fade-up">  
-  <h3 data-aos="fade-down" class="section-title">Portfolio</h3>
+<!-- ================= RESUME TIMELINE ================= -->
+<section id="resume" class="py-20 px-6">
+  <h3 class="text-3xl font-bold text-center mb-16 flex justify-center items-center gap-3">
+    <i class="fa fa-briefcase text-indigo-500"></i> Resume Journey
+  </h3>
 
-  <div class="portfolio-grid">
+  <div class="max-w-3xl mx-auto relative">
+
+    <!-- LINE -->
+    <div class="absolute left-5 top-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-blue-500 to-emerald-400 rounded-full"></div>
+
+    <!-- ===== ITEM 1 ===== -->
+    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
+
+      <!-- DOT -->
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+        <i class="fa fa-graduation-cap text-white"></i>
+      </div>
+
+      <!-- CARD -->
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition hover:-translate-y-1 flex gap-4 items-start">
+
+        <!-- LOGO -->
+        <img src="./img/unper.png" alt="Unper"
+          class="w-14 h-14 object-contain rounded-lg bg-white p-1 shadow">
+
+        <!-- CONTENT -->
+        <div>
+          <span class="text-xs text-slate-400 flex items-center gap-2 mb-1">
+            <i class="fa fa-calendar"></i> 2021 – 2025
+          </span>
+
+          <h4 class="text-lg font-semibold text-indigo-500 flex items-center gap-2">
+            Universitas Perjuangan
+          </h4>
+
+          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+            Menempuh pendidikan Teknik Informatika dengan fokus pada pengembangan sistem dan aplikasi web.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== ITEM 2 ===== -->
+    <div class="relative pl-16 mb-14 group" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+        <i class="fa fa-laptop-code text-white"></i>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition hover:-translate-y-1 flex gap-4 items-start">
+
+        <!-- LOGO -->
+        <img src="./img/MSIB.png" alt="MSIB"
+          class="w-14 h-14 object-contain rounded-lg bg-white p-1 shadow">
+
+        <!-- CONTENT -->
+        <div>
+          <span class="text-xs text-slate-400 flex items-center gap-2 mb-1">
+            <i class="fa fa-calendar"></i> Des 2023 – Apr 2024
+          </span>
+
+          <h4 class="text-lg font-semibold text-indigo-500 flex items-center gap-2">
+            MSIB Fullstack Developer
+          </h4>
+
+          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+            Program Magang & Studi Independen Bersertifikat dengan fokus pada Laravel dan REST API.
+          </p>
+
+          <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 list-disc pl-5">
+            <li>Backend development Laravel</li>
+            <li>Membangun REST API</li>
+            <li>Integrasi frontend & backend</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== ITEM 3 ===== -->
+    <div class="relative pl-16 group" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+        <i class="fa fa-building text-white"></i>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition hover:-translate-y-1 flex gap-4 items-start">
+
+        <!-- LOGO -->
+        <img src="./img/diskominfo.png" alt="Diskominfo"
+          class="w-14 h-14 object-contain rounded-lg bg-white p-1 shadow">
+
+        <!-- CONTENT -->
+        <div>
+          <span class="text-xs text-slate-400 flex items-center gap-2 mb-1">
+            <i class="fa fa-calendar"></i> Apr 2025 – Jun 2025
+          </span>
+
+          <h4 class="text-lg font-semibold text-indigo-500 flex items-center gap-2">
+            Diskominfo Tasikmalaya
+          </h4>
+
+          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+            Web Developer Intern dalam pengembangan sistem digital pemerintahan.
+          </p>
+
+          <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 list-disc pl-5">
+            <li>UI development dengan React</li>
+            <li>Responsive design optimization</li>
+            <li>JWT authentication Laravel</li>
+            <li>Dokumentasi teknis sistem</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section><!-- ================= SKILLS ================= -->
+<section id="skills" class="py-20 px-6 bg-slate-100 dark:bg-slate-800">
+  
+  <!-- TITLE -->
+  <h3 class="text-3xl font-bold text-center mb-16 flex justify-center items-center gap-3">
+    <i class="fa fa-star text-indigo-500"></i> Skills & Expertise
+  </h3>
+
+  <div class="max-w-6xl mx-auto space-y-16">
+
+    <!-- ================= HARD SKILLS ================= -->
+    <div>
+      <h4 class="text-xl font-semibold mb-8 text-indigo-500 flex items-center gap-2">
+        <i class="fa fa-code"></i> Hard Skills
+      </h4>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Web Dev -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-100 dark:bg-indigo-500/20 mb-4">
+            <i class="fa fa-globe text-indigo-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">Web Development</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Laravel • CodeIgniter • React • REST API
+          </p>
+        </div>
+
+        <!-- Android -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 dark:bg-green-500/20 mb-4">
+            <i class="fa fa-mobile-alt text-green-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">Android Development</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Kotlin • Mobile UI
+          </p>
+        </div>
+
+        <!-- System Analysis -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-500/20 mb-4">
+            <i class="fa fa-database text-blue-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">System Analysis</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            SPBE • API Testing • Documentation
+          </p>
+        </div>
+
+        <!-- Admin -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-500/20 mb-4">
+            <i class="fa fa-file-alt text-purple-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">Administrasi</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Word • Excel • Access • PowerPoint
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= SOFT SKILLS ================= -->
+    <div>
+      <h4 class="text-xl font-semibold mb-8 text-indigo-500 flex items-center gap-2">
+        <i class="fa fa-users"></i> Soft Skills
+      </h4>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Teamwork -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-pink-100 dark:bg-pink-500/20 mb-4">
+            <i class="fa fa-users text-pink-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">Teamwork</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Kolaborasi efektif dalam tim dan komunikasi yang baik
+          </p>
+        </div>
+
+        <!-- Problem Solving -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-yellow-100 dark:bg-yellow-500/20 mb-4">
+            <i class="fa fa-lightbulb text-yellow-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">Problem Solving</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Mampu menganalisis dan menyelesaikan masalah secara efektif
+          </p>
+        </div>
+
+        <!-- Time Management -->
+        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-cyan-100 dark:bg-cyan-500/20 mb-4">
+            <i class="fa fa-clock text-cyan-500"></i>
+          </div>
+          <h5 class="font-semibold text-lg mb-2">Time Management</h5>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Mengatur waktu secara efisien untuk mencapai target
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" class="py-20 px-6"> 
+  <h3 class="text-2xl font-bold text-center mb-12 flex justify-center gap-2">
+    <i class="fa fa-image text-indigo-500"></i> Portfolio
+  </h3>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
 
     <!-- PROJECT 1 -->
-    <div class="project" data-aos="flip-left">
-      <img src="./img/porto1.png" alt="Website Biografi Linkin Park">
-      <div class="project-content">
-        <h4>Website Biografi Linkin Park</h4>
-        <p>Website statis yang menampilkan profil dan perjalanan karier band menggunakan HTML, CSS, dan JavaScript dengan tampilan responsif.</p>
-        <span class="tech">HTML • CSS • JavaScript</span>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full">
+      <img src="./img/porto1.png" class="h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1">
+        <h4 class="text-indigo-500 font-semibold">Website Biografi</h4>
+        <p class="text-sm flex-1">
+          Website statis yang menampilkan profil dan perjalanan karier dengan desain responsif dan interaktif.
+        </p>
+        <span class="mt-3 text-xs text-indigo-500">HTML • CSS • JavaScript</span>
       </div>
     </div>
 
     <!-- PROJECT 2 -->
-    <div class="project" data-aos="flip-left" data-aos-delay="100">
-      <img src="./img/Frame 2.png" alt="Sistem Penerimaan Beasiswa">
-      <div class="project-content">
-        <h4>Sistem Penerimaan Beasiswa</h4>
-        <p>Aplikasi berbasis web untuk pengelolaan data pendaftaran dan seleksi beasiswa dengan fitur CRUD dan autentikasi.</p>
-        <span class="tech">PHP Native • CSS • MySQL</span>
-      </div>
-    </div>
+   <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full"> 
+  <img src="./img/neuralitika.png" class="h-52 w-full object-cover">
+  <div class="p-5 flex flex-col flex-1">
+    <h4 class="text-indigo-500 font-semibold">Neuralitika LMS</h4>
+    <p class="text-sm flex-1">
+      Berperan sebagai <b>Frontend Developer</b> dalam project tim untuk membangun platform pembelajaran Data & AI. 
+      Mengembangkan tampilan interaktif seperti dashboard, roadmap, dan UI modular menggunakan React & Tailwind, 
+      serta berkolaborasi dengan tim backend untuk integrasi API.
+    </p>
+    <span class="mt-3 text-xs text-indigo-500">React • Tailwind </span>
+  </div>
+</div>
 
     <!-- PROJECT 3 -->
-    <div class="project" data-aos="flip-left" data-aos-delay="200">
-      <img src="./img/sistem rekomendasi sepeda listrik.png" alt="Sistem Rekomendasi Sepeda Listrik">
-      <div class="project-content">
-        <h4>Sistem Rekomendasi Sepeda Listrik</h4>
-        <p>Sistem pendukung keputusan untuk rekomendasi sepeda listrik dengan metode perhitungan dan UI interaktif.</p>
-        <span class="tech">Laravel • Bootstrap • jQuery • MySQL</span>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full">
+      <img src="./img/Frame 2.png" class="h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1">
+        <h4 class="text-indigo-500 font-semibold">Website Pendaftaran Beasiswa</h4>
+        <p class="text-sm flex-1">
+          Aplikasi web untuk mengelola pendaftaran dan seleksi beasiswa dengan fitur CRUD dan autentikasi.
+        </p>
+        <span class="mt-3 text-xs text-indigo-500">PHP • MySQL</span>
       </div>
     </div>
 
     <!-- PROJECT 4 -->
-    <div class="project" data-aos="flip-left" data-aos-delay="300">
-      <img src="./img/neuralitika.png" alt="Neuralitika LMS Platform">
-      <div class="project-content">
-        <h4>Neuralitika LMS - Data & AI Learning Platform</h4>
-        <p>
-          Platform pembelajaran interaktif untuk Data Analyst, Data Science, Machine Learning, dan AI 
-          dengan fitur playground, roadmap, dashboard progres, dan API.
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full">
+      <img src="./img/sistem rekomendasi sepeda listrik.png" class="h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1">
+        <h4 class="text-indigo-500 font-semibold">Sistem Rekomendasi Sepeda Listrik</h4>
+        <p class="text-sm flex-1">
+          Sistem pendukung keputusan untuk memberikan rekomendasi sepeda listrik berbasis perhitungan dan preferensi pengguna.
         </p>
-        <span class="tech">React • TypeScript • Tailwind</span>
+        <span class="mt-3 text-xs text-indigo-500">Laravel • MySQL</span>
       </div>
     </div>
 
   </div>
+  
 </section>
 
+<!-- ================= CONTACT / FOOTER ================= -->
+<section id="contact"
+class="py-16
+bg-gradient-to-br from-slate-100 via-white to-slate-200
+dark:from-slate-900 dark:via-slate-900 dark:to-slate-800
+transition-colors duration-500 overflow-hidden">
 
-  <section id="contact" class="contact-section" data-aos="fade-up">
-  <div class="contact-container">
+<div class="max-w-6xl mx-auto px-6">
 
-    <h3 data-aos="fade-down">Let's Work Together</h3>
-    <p class="contact-sub">
-      Terbuka untuk peluang kerja, kolaborasi, maupun diskusi project.  
-      Silakan hubungi saya melalui platform berikut.
-    </p>
+<div class="grid md:grid-cols-3 gap-10">
 
-    <div class="contact-icons" data-aos="zoom-in" data-aos-delay="300">
-      <a href="https://github.com/rifkisyaripatuloh" target="_blank" class="contact-icon github">
-        <i class="fab fa-github"></i>
-        <span>GitHub</span>
-      </a>
+<!-- BRAND -->
+<div data-aos="fade-right">
 
-      <a href="mailto:rifkisyarif6@gmail.com" class="contact-icon gmail">
-        <i class="fas fa-envelope"></i>
-        <span>Email</span>
-      </a>
+<h3 class="text-2xl font-bold flex items-center gap-2 mb-4
+bg-gradient-to-r from-indigo-500 to-blue-500
+bg-clip-text text-transparent">
 
-      <a href="https://www.linkedin.com/in/rifki-syarip" target="_blank" class="contact-icon linkedin">
-        <i class="fab fa-linkedin-in"></i>
-        <span>LinkedIn</span>
-      </a>
+<i class="fa-solid fa-code"></i> Rifki Syarip
 
-      <a href="https://wa.me/6288214995021" target="_blank" class="contact-icon whatsapp">
-        <i class="fab fa-whatsapp"></i>
-        <span>WhatsApp</span>
-      </a>
-    </div>
+</h3>
 
-    <p class="copyright">
-      © 2026 Rifki Syaripatuloh — Portfolio Website
-    </p>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
 
-  </div>
+Web Developer & System Analyst yang berfokus pada pengembangan
+aplikasi web modern menggunakan Laravel, React, dan REST API.
+
+</p>
+
+<div class="flex gap-4 mt-5">
+
+<!-- Github -->
+<a href="https://github.com/rifkisyaripatuloh"
+target="_blank"
+class="w-10 h-10 flex items-center justify-center rounded-lg
+bg-slate-200 hover:bg-indigo-500
+dark:bg-white/10 dark:hover:bg-indigo-500
+transition duration-300 shadow">
+
+<i class="fab fa-github text-slate-700 dark:text-white"></i>
+
+</a>
+
+<!-- LinkedIn -->
+<a href="https://www.linkedin.com/in/rifki-syarip/"
+target="_blank"
+class="w-10 h-10 flex items-center justify-center rounded-lg
+bg-slate-200 hover:bg-blue-500
+dark:bg-white/10 dark:hover:bg-blue-500
+transition duration-300 shadow">
+
+<i class="fab fa-linkedin-in text-slate-700 dark:text-white"></i>
+
+</a>
+
+<!-- Gmail -->
+<a href="mailto:rifkisyarif6@gmail.com"
+class="w-10 h-10 flex items-center justify-center rounded-lg
+bg-slate-200 hover:bg-red-500
+dark:bg-white/10 dark:hover:bg-red-500
+transition duration-300 shadow">
+
+<i class="fa fa-envelope text-slate-700 dark:text-white"></i>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- NAVIGATION -->
+<div data-aos="fade-up">
+
+<h4 class="text-lg font-semibold mb-4
+text-indigo-600 dark:text-indigo-400">
+
+Navigation
+
+</h4>
+
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+
+<li>
+<a href="#about"
+class="hover:text-indigo-500 dark:hover:text-white
+transition flex items-center gap-2">
+
+<i class="fa fa-user text-xs text-slate-500 dark:text-indigo-500"></i> 
+About
+
+</a>
+</li>
+
+<li>
+<a href="#resume"
+class="hover:text-indigo-500 dark:hover:text-white
+transition flex items-center gap-2">
+
+<i class="fa fa-briefcase text-xs text-slate-500 dark:text-indigo-500"></i> 
+Resume
+
+</a>
+</li>
+
+<li>
+<a href="#skills"
+class="hover:text-indigo-500 dark:hover:text-white
+transition flex items-center gap-2">
+
+<i class="fa fa-star text-xs text-slate-500 dark:text-indigo-500"></i> 
+Skills
+
+</a>
+</li>
+
+<li>
+<a href="#portfolio"
+class="hover:text-indigo-500 dark:hover:text-white
+transition flex items-center gap-2">
+
+<i class="fa fa-image text-xs text-slate-500 dark:text-indigo-500"></i> 
+Portfolio
+
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- CONTACT -->
+<div data-aos="fade-left">
+
+<h4 class="text-lg font-semibold mb-4
+text-indigo-600 dark:text-indigo-400">
+
+Contact
+
+</h4>
+
+<div class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+
+<a href="mailto:rifkisyarif6@gmail.com"
+class="flex items-center gap-3
+hover:text-indigo-500 dark:hover:text-white
+transition">
+
+<i class="fa fa-envelope text-xs text-slate-500 dark:text-indigo-500"></i>
+<span>rifkisyarif6@gmail.com</span>
+
+</a>
+
+<div class="flex items-center gap-3">
+
+<i class="fa fa-phone text-xs text-slate-500 dark:text-indigo-500"></i>
++62 882 1449 5021
+
+</div>
+
+<div class="flex items-center gap-3">
+
+<i class="fa fa-location-dot text-xs text-slate-500 dark:text-indigo-500"></i>
+Tasikmalaya, Indonesia
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER BOTTOM -->
+<div class="mt-12 pt-5 border-t
+border-slate-300 dark:border-slate-700
+flex flex-col md:flex-row
+justify-between items-center
+text-sm text-slate-500 dark:text-slate-400">
+
+<p>
+
+© 2026 <span class="text-indigo-500">Rifki Syarip</span>.
+All rights reserved.
+
+</p>
+
+</div>
+
+</div>
+
 </section>
+<!-- SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+const toggle = document.getElementById("toggleDark");
+const dot = document.getElementById("dot");
+const iconSun = document.getElementById("iconSun");
+const iconMoon = document.getElementById("iconMoon");
 
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+  toggle.checked = true;
+  dot.classList.add("left-8");
+  dot.classList.remove("left-1");
+  iconSun.classList.add("hidden");
+  iconMoon.classList.remove("hidden");
+}
 
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    dot.classList.add("left-8");
+    dot.classList.remove("left-1");
+    iconSun.classList.add("hidden");
+    iconMoon.classList.remove("hidden");
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    dot.classList.remove("left-8");
+    dot.classList.add("left-1");
+    iconSun.classList.remove("hidden");
+    iconMoon.classList.add("hidden");
+  }
+});
+</script>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100,
-      easing: 'ease-in-out'
-    });
-
-    const btn = document.getElementById('toggleDark');
-    btn.onclick = () => {
-      document.body.classList.toggle('dark-mode');
-      btn.innerHTML = document.body.classList.contains('dark-mode')
-        ? '<i class="fa-solid fa-sun" style="color:gold"></i>'
-        : '<i class="fa-solid fa-moon"></i>';
-    };
-
-    const menuBtn = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('nav ul');
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      menuBtn.innerHTML = navLinks.classList.contains('active')
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    document.querySelectorAll('nav ul a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      });
-    });
-  </script>
 </body>
 </html>
