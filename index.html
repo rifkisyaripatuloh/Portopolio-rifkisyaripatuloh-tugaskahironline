@@ -31,7 +31,8 @@
       <i class="fa-solid fa-code"></i> Rifki Syarip
     </h1>
 
-   <ul class="hidden md:flex gap-8 font-medium items-center">
+<!-- MENU DESKTOP -->
+<ul class="hidden md:flex gap-8 font-medium items-center">
 
 <li>
 <a href="#about" class="hover:text-indigo-500 flex items-center gap-1 transition">
@@ -69,6 +70,10 @@ Contact
 </li>
 
 </ul>
+<button id="menu-btn" class="md:hidden text-2xl text-slate-700 dark:text-white">
+<i class="fa fa-bars"></i>
+</button>
+
 <label class="flex items-center cursor-pointer">
   
   <input type="checkbox" id="toggleDark" class="sr-only">
@@ -696,7 +701,11 @@ const toggle = document.getElementById("toggleDark");
 const dot = document.getElementById("dot");
 const iconSun = document.getElementById("iconSun");
 const iconMoon = document.getElementById("iconMoon");
-
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
 if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark");
   toggle.checked = true;
