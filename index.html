@@ -4,7 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio - Rifki Syarip</title>
+<style>
+@keyframes slideX {
+  0% { transform: translateX(-40px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 0.8; }
+}
 
+@keyframes slideY {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
+
+.animate-slide-x {
+  animation: slideX 2s ease-in-out infinite alternate;
+}
+
+.animate-slide-y {
+  animation: slideY 3s ease-in-out infinite alternate;
+}
+
+@keyframes slideX {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(40px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(40px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-slide-x {
+  animation: slideX 8s infinite ease-in-out;
+}
+
+.animate-slide-y {
+  animation: slideY 10s infinite ease-in-out;
+}
+
+/* BADGE STYLE */
+.skill-badge {
+  @apply flex items-center gap-2 px-5 py-2 rounded-full
+  bg-white/70 dark:bg-slate-800/70
+  backdrop-blur-lg
+  border border-white/20 dark:border-slate-700
+  text-sm font-medium
+  shadow-sm hover:shadow-lg
+  transition duration-300
+  hover:scale-105 cursor-default;
+}
+
+/* MARQUEE ANIMATION */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.group:hover .relative.w-72 {
+  animation: swing 1s ease-in-out;
+}
+
+
+</style>
   <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -21,10 +98,32 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body class="font-[Poppins] bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-200 transition duration-300">
+<body class="font-[Poppins] relative overflow-x-hidden
+bg-gradient-to-br from-indigo-50 via-white to-blue-100
+dark:from-slate-950 dark:via-slate-900 dark:to-slate-950
+text-slate-700 dark:text-slate-200
+transition duration-500">
+
+<!-- GLOBAL BACKGROUND -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+
+  <!-- GRADIENT ANIMATION -->
+  <div class="absolute w-[600px] h-[600px] bg-indigo-400/30 rounded-full blur-3xl
+  top-[-100px] left-[-100px] animate-blob"></div>
+
+  <div class="absolute w-[500px] h-[500px] bg-blue-400/30 rounded-full blur-3xl
+  bottom-[-120px] right-[-100px] animate-blob delay-2000"></div>
+
+  <div class="absolute w-[400px] h-[400px] bg-purple-400/20 rounded-full blur-3xl
+  top-[40%] left-[40%] animate-blob delay-4000"></div>
+
+</div>
 
 <!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-slate-900/70 shadow-sm">
+<nav class="fixed top-0 w-full z-50
+backdrop-blur-xl bg-white/60 dark:bg-slate-900/60
+border-b border-white/20 dark:border-slate-700/50
+shadow-sm">
 
 <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
@@ -163,27 +262,84 @@ Contact
 </nav>
 <!-- ================= ABOUT ================= -->
 <section id="about" class="pt-32 pb-20 px-6 
-bg-gradient-to-br from-indigo-100 via-purple-100 to-blue-100 
-dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+bg-white/70 dark:bg-slate-800/70
+backdrop-blur-xl
+border border-white/20 dark:border-slate-700
+shadow-lg hover:shadow-xl
+transition duration-300">
 
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
-    <!-- FOTO -->
-    <div class="flex justify-center md:justify-center" data-aos="zoom-in">
-      <div class="relative group">
-
-        <!-- SOFT GLOW -->
-        <div class="absolute inset-0 rounded-full 
-        bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 
-        blur-xl opacity-20 group-hover:opacity-40 transition duration-500"></div>
-
-        <!-- FOTO -->
-        <img src="./img/foto-rifki.jpeg"
-          class="relative w-64 h-64 md:w-72 md:h-72 object-cover rounded-full 
-          shadow-xl border-[6px] border-white dark:border-slate-800 
-          group-hover:scale-105 transition duration-300">
+<div class="flex justify-center items-center min-h-[600px] perspective-[1500px]">
+  
+  <div class="relative group cursor-pointer">
+    
+    <div class="absolute -top-44 left-1/2 -translate-x-1/2 z-10 w-64 h-48 pointer-events-none">
+      <div class="absolute left-4 top-0 w-10 h-44 border-l-[14px] border-slate-700/90 rounded-[100%_0_0_100%] rotate-[-5deg] shadow-lg after:content-[''] after:absolute after:inset-0 after:bg-[url('https://www.transparenttextures.com/patterns/fabric-of-the-nation.png')] after:opacity-20"></div>
+      <div class="absolute right-4 top-0 w-10 h-44 border-r-[14px] border-slate-800/95 rounded-[0_100%_100%_0] rotate-[5deg] shadow-lg after:content-[''] after:absolute after:inset-0 after:bg-[url('https://www.transparenttextures.com/patterns/fabric-of-the-nation.png')] after:opacity-20"></div>
+      
+      <div class="absolute bottom-[-15px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div class="w-5 h-5 border-4 border-gray-400 rounded-full shadow-md"></div>
+        <div class="w-4 h-8 bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400 rounded-b-lg shadow-inner -mt-1 relative">
+           <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-4 bg-gray-500/30 rounded-full"></div>
+        </div>
       </div>
     </div>
+
+    <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-64 h-12 bg-black/20 blur-[40px] rounded-[100%] scale-x-150"></div>
+
+    <div class="relative w-[300px] h-[450px] rounded-[24px] overflow-hidden
+      bg-white dark:bg-slate-900 
+      border border-slate-200 dark:border-slate-800
+      shadow-[20px_40px_80px_rgba(0,0,0,0.25)]
+      transition-all duration-700 ease-out
+      group-hover:rotate-x-[15deg] group-hover:-rotate-y-[10deg] group-hover:translate-y-[-10px] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.3)]">
+      
+      <div class="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-20 pointer-events-none">
+        <div class="absolute top-[-50px] right-[-50px] w-64 h-64 bg-indigo-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-50px] left-[-50px] w-64 h-64 bg-emerald-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div class="absolute top-0 left-0 w-full h-32 bg-slate-50 dark:bg-slate-800/50 clip-path-wave">
+         <svg class="absolute bottom-0 w-full" viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,49.98 C149.99,150.00 349.85,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" class="fill-white dark:fill-slate-900"></path></svg>
+      </div>
+
+      <div class="relative z-10 flex flex-col items-center pt-8 h-full">
+        
+        <div class="flex items-center gap-2 mb-8">
+           <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-lg">
+              <i class="fa-solid fa-bolt-lightning text-sm"></i>
+           </div>
+           <span class="font-black tracking-tighter text-slate-800 dark:text-white">RIFKI</span>
+        </div>
+
+        <div class="relative w-36 h-36 mb-6">
+          <div class="absolute inset-0 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"></div>
+          <img src="./img/foto-rifki.jpeg" class="relative w-full h-full object-cover rounded-full border-[6px] border-white dark:border-slate-900 shadow-2xl">
+          <div class="absolute bottom-2 right-2 w-6 h-6 bg-emerald-500 border-4 border-white dark:border-slate-900 rounded-full"></div>
+        </div>
+
+        <div class="text-center px-6">
+          <h3 class="font-bold text-2xl text-slate-900 dark:text-white tracking-tight leading-tight">Rifki Syaripatuloh</h3>
+        </div>
+
+        <div class="mt-auto mb-8 px-8 w-full flex flex-col items-center">
+          <div class="w-full h-12 bg-[url('https://www.scandit.com/wp-content/themes/scandit/assets/img/barcode-hero.png')] bg-contain bg-no-repeat bg-center mix-blend-multiply dark:invert opacity-80"></div>
+          <div class="flex gap-4 mt-6 text-slate-400 text-lg">
+            <i class="fa-brands fa-laravel hover:text-red-500 transition-all"></i>
+            <i class="fa-brands fa-react hover:text-blue-400 transition-all"></i>
+            <i class="fa-brands fa-php hover:text-indigo-500 transition-all"></i>
+            <i class="fa-solid fa-database hover:text-emerald-500 transition-all"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+    </div>
+  </div>
+</div>
+
+
 
     <!-- TEXT -->
     <div data-aos="fade-left">
@@ -195,65 +351,81 @@ dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
           Rifki Syaripatuloh
         </span>
       </h2>
-
-      <!-- TITLE -->
-      <h3 class="text-lg font-medium text-indigo-500 mb-5 flex items-center gap-2">
-        <i class="fa fa-code"></i> Web Developer • System Analyst
-      </h3>
+<!-- DESC -->
 <!-- DESC -->
 <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
   Lulusan <b>Teknik Informatika</b> yang berfokus pada pengembangan aplikasi web dan sistem informasi. 
-  Berpengalaman menggunakan <b>Laravel, React, dan REST API</b> untuk membangun solusi digital yang efisien dan scalable.
+  Berpengalaman menggunakan <b>Laravel, React, dan REST API</b> untuk membangun solusi digital yang efisien, scalable, dan user-friendly.
+  
   <br><br>
-  Memiliki kemampuan dalam <b>administrasi dan pengolahan data</b> menggunakan Microsoft Office (Word, Excel, Access) 
-  untuk mendukung dokumentasi dan manajemen sistem.
+
+  Memiliki kemampuan dalam <b>IT Support</b> untuk melakukan troubleshooting sistem, instalasi, serta memastikan operasional teknologi berjalan dengan baik. 
+  Selain itu, juga berpengalaman dalam <b>administrasi dan pengolahan data</b> menggunakan Microsoft Office (Word, Excel, Access) 
+  guna mendukung dokumentasi, pelaporan, dan manajemen sistem.
+
   <br><br>
-  Terbiasa bekerja dalam tim, komunikatif, serta berorientasi pada kualitas dan pengalaman pengguna.
+
+  Terbiasa bekerja dalam tim, komunikatif, serta memiliki ketertarikan tinggi terhadap <b>tantangan baru</b> dan pengembangan teknologi, 
+  dengan orientasi pada kualitas, efisiensi, dan pengalaman pengguna.
 </p>
 
-      <!-- SKILL BADGES -->
-      <div class="mt-6 flex flex-wrap gap-3">
-        <span class="px-4 py-1 text-sm rounded-full bg-indigo-100 text-indigo-600 dark:bg-indigo-500/20">
-          Laravel
-        </span>
-        <span class="px-4 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-500/20">
-          React
-        </span>
-        <span class="px-4 py-1 text-sm rounded-full bg-purple-100 text-purple-600 dark:bg-purple-500/20">
-          REST API
-        </span>
-        <span class="px-4 py-1 text-sm rounded-full bg-green-100 text-green-600 dark:bg-green-500/20">
-          System Analysis
-        </span>
-        <span class="px-4 py-1 text-sm rounded-full bg-yellow-100 text-yellow-600 dark:bg-yellow-500/20">
-          Microsoft Office
-        </span>
-      </div>
+     <!-- SKILL BADGES MODERN -->
+<div class="mt-8 overflow-hidden relative">
 
-      <!-- HIGHLIGHT INFO -->
-      <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
+  <!-- GRADIENT FADE -->
+  <div class="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10"></div>
+  <div class="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10"></div>
 
-        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
-          <i class="fa fa-file text-indigo-500"></i>
-          Administrasi Data
-        </div>
+  <!-- SLIDER -->
+  <div class="flex gap-4 animate-marquee w-max">
 
-        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
-          <i class="fa fa-chart-line text-green-500"></i>
-          Data Management
-        </div>
+    <!-- ITEM -->
+    <div class="skill-badge">
+      <i class="fa-brands fa-laravel text-red-500"></i>
+      Laravel
+    </div>
 
-        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
-          <i class="fa fa-users text-blue-500"></i>
-          Team Collaboration
-        </div>
+    <div class="skill-badge">
+      <i class="fa-brands fa-react text-blue-400"></i>
+      React
+    </div>
 
-        <div class="flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 p-3 rounded-lg shadow-sm">
-          <i class="fa fa-clock text-purple-500"></i>
-          Time Management
-        </div>
+    <div class="skill-badge">
+      <i class="fa-solid fa-plug text-purple-500"></i>
+      REST API
+    </div>
 
-      </div>
+
+
+    <div class="skill-badge">
+      <i class="fa-solid fa-file-excel text-green-600"></i>
+      Excel
+    </div>
+
+    <div class="skill-badge">
+      <i class="fa-solid fa-file-word text-blue-500"></i>
+      Word
+    </div>
+
+    <!-- DUPLICATE BIAR LOOP SMOOTH -->
+    <div class="skill-badge">
+      <i class="fa-brands fa-laravel text-red-500"></i>
+      Laravel
+    </div>
+
+    <div class="skill-badge">
+      <i class="fa-brands fa-react text-blue-400"></i>
+      React
+    </div>
+
+    <div class="skill-badge">
+      <i class="fa-solid fa-plug text-purple-500"></i>
+      REST API
+    </div>
+
+
+  </div>
+</div>
 
       <!-- BUTTON -->
       <div class="mt-8 flex flex-wrap gap-4">
@@ -287,223 +459,367 @@ dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
     <!-- LINE -->
     <div class="absolute left-5 top-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-blue-500 to-emerald-400 rounded-full"></div>
 
-    <!-- ===== ITEM 1 ===== -->
-    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
+    <!-- ================= PENDIDIKAN ================= -->
+    <p class="ml-16 mb-6 text-indigo-500 font-semibold">🎓 Pendidikan</p>
 
-      <!-- DOT -->
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg">
         <i class="fa fa-graduation-cap text-white"></i>
       </div>
 
-      <!-- CARD -->
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition hover:-translate-y-1 flex gap-4 items-start">
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
+        <img src="./img/unper.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
 
-        <!-- LOGO -->
-        <img src="./img/unper.png" alt="Unper"
-          class="w-14 h-14 object-contain rounded-lg bg-white p-1 shadow">
-
-        <!-- CONTENT -->
         <div>
-          <span class="text-xs text-slate-400 flex items-center gap-2 mb-1">
-            <i class="fa fa-calendar"></i> 2021 – 2025
-          </span>
-
-          <h4 class="text-lg font-semibold text-indigo-500 flex items-center gap-2">
-            Universitas Perjuangan
-          </h4>
-
+          <span class="text-xs text-slate-400">2021 – 2025</span>
+          <h4 class="text-lg font-semibold text-indigo-500">S1 Teknik Informatika</h4>
           <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
-            Menempuh pendidikan Teknik Informatika dengan fokus pada pengembangan sistem dan aplikasi web.
+            Fokus pada pengembangan web, sistem informasi, dan analisis sistem.
           </p>
         </div>
-
       </div>
     </div>
 
-    <!-- ===== ITEM 2 ===== -->
-    <div class="relative pl-16 mb-14 group" data-aos="fade-up" data-aos-delay="100">
+    <!-- ================= PELATIHAN ================= -->
+    <p class="ml-16 mb-6 text-blue-500 font-semibold">💻 Pelatihan</p>
 
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-lg">
         <i class="fa fa-laptop-code text-white"></i>
       </div>
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition hover:-translate-y-1 flex gap-4 items-start">
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
+        <img src="./img/MSIB.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
 
-        <!-- LOGO -->
-        <img src="./img/MSIB.png" alt="MSIB"
-          class="w-14 h-14 object-contain rounded-lg bg-white p-1 shadow">
-
-        <!-- CONTENT -->
         <div>
-          <span class="text-xs text-slate-400 flex items-center gap-2 mb-1">
-            <i class="fa fa-calendar"></i> Des 2023 – Apr 2024
-          </span>
-
-          <h4 class="text-lg font-semibold text-indigo-500 flex items-center gap-2">
-            MSIB Fullstack Developer
-          </h4>
-
+          <span class="text-xs text-slate-400">Des 2023 – Apr 2024</span>
+          <h4 class="text-lg font-semibold text-blue-500">MSIB Fullstack Developer</h4>
           <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
-            Program Magang & Studi Independen Bersertifikat dengan fokus pada Laravel dan REST API.
+            Pelatihan intensif pengembangan web menggunakan Laravel dan REST API.
           </p>
+        </div>
+      </div>
+    </div>
 
-          <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 list-disc pl-5">
-            <li>Backend development Laravel</li>
-            <li>Membangun REST API</li>
-            <li>Integrasi frontend & backend</li>
-          </ul>
+    <!-- ================= MAGANG ================= -->
+    <p class="ml-16 mb-6 text-emerald-500 font-semibold">🏢 Magang</p>
+
+    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg">
+        <i class="fa fa-building text-white"></i>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
+        <img src="./img/diskominfo.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+
+        <div>
+          <span class="text-xs text-slate-400">Apr 2025 – Jun 2025</span>
+          <h4 class="text-lg font-semibold text-emerald-500">Web Developer Intern</h4>
+          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+            Mengembangkan UI React, integrasi API, serta sistem pemerintahan digital.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= ORGANISASI ================= -->
+    <p class="ml-16 mb-6 text-purple-500 font-semibold">👥 Organisasi</p>
+
+    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center shadow-lg">
+        <i class="fa fa-users text-white"></i>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
+ <img src="./img/cc.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+        <div>
+          <span class="text-xs text-slate-400">2022 – 2023</span>
+          <h4 class="text-lg font-semibold text-purple-500">Computer Club</h4>
+          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+            Aktif dalam kegiatan organisasi, koordinasi event, dan pengembangan soft skill komunikasi serta teamwork.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= VOLUNTEER ================= -->
+    <p class="ml-16 mb-6 text-pink-500 font-semibold">🤝 Volunteer</p>
+
+    <div class="relative pl-16 group" data-aos="fade-up">
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center shadow-lg">
+        <i class="fa fa-hand-holding-heart text-white"></i>
+      </div>
+
+      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
+<img src="./img/download.jpg" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+        <div>
+  <span class="text-xs text-slate-400">2023</span>
+  <h4 class="text-lg font-semibold text-pink-500">Volunteer Event Kampus</h4>
+  <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+    Berperan dalam kegiatan pengenalan program <b>Kampus Merdeka (MBKM)</b> kepada mahasiswa, serta menjabat sebagai 
+    <b>Koordinator Lapangan</b> yang bertanggung jawab dalam mengatur jalannya acara.
+  </p>
+
+  <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 list-disc pl-5">
+    <li>Mengkoordinasikan tim volunteer selama kegiatan berlangsung</li>
+    <li>Mengelola alur peserta dan memastikan kelancaran acara</li>
+    <li>Menyampaikan informasi terkait program Kampus Merdeka kepada peserta</li>
+    <li>Berkomunikasi dengan panitia inti untuk memastikan operasional berjalan efektif</li>
+  </ul>
+</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="relative py-24 px-6 overflow-hidden
+bg-gradient-to-br from-indigo-100 via-white to-blue-100
+dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+
+  <!-- BACKGROUND ICONS (SLIDE STYLE) -->
+  <div class="absolute inset-0 pointer-events-none">
+
+    <!-- LEFT -->
+    <i class="fa-brands fa-laravel text-red-400 text-4xl absolute top-20 left-10 animate-slide-x opacity-30"></i>
+    <i class="fa-brands fa-js text-yellow-400 text-4xl absolute bottom-24 left-20 animate-slide-y opacity-30"></i>
+
+    <!-- RIGHT -->
+    <i class="fa-brands fa-react text-blue-400 text-4xl absolute top-32 right-16 animate-slide-y opacity-30"></i>
+    <i class="fa-brands fa-php text-indigo-400 text-4xl absolute bottom-20 right-10 animate-slide-x opacity-30"></i>
+
+    <!-- ADMIN -->
+    <i class="fa-solid fa-file-excel text-green-500 text-4xl absolute top-20 right-1/3 animate-slide-x opacity-30"></i>
+    <i class="fa-solid fa-file-word text-blue-500 text-4xl absolute bottom-28 left-1/3 animate-slide-y opacity-30"></i>
+
+    <!-- SOFT CENTER -->
+    <i class="fa-solid fa-database text-blue-300 text-4xl absolute top-1/2 left-[8%] animate-slide-x opacity-20"></i>
+
+    <!-- BLUR EFFECT -->
+    <div class="absolute w-80 h-80 bg-indigo-400 opacity-20 blur-3xl rounded-full top-0 left-1/3"></div>
+    <div class="absolute w-80 h-80 bg-blue-400 opacity-20 blur-3xl rounded-full bottom-0 right-1/3"></div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative max-w-5xl mx-auto">
+
+    <!-- TITLE -->
+    <h3 class="text-4xl font-bold text-center mb-20 tracking-tight">
+      <span class="bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
+        Skills & Expertise
+      </span>
+    </h3>
+
+    <!-- HARD SKILLS -->
+    <div class="mb-16">
+      <h4 class="text-lg font-semibold mb-8 text-indigo-500 flex items-center gap-2">
+        <i class="fa fa-code"></i> Hard Skills
+      </h4>
+
+      <!-- GRID 2 COL FIX -->
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-500">
+          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 flex items-center justify-center rounded-xl
+              bg-indigo-100 dark:bg-indigo-500/20">
+                <i class="fa fa-globe text-indigo-500"></i>
+              </div>
+              <h5 class="font-semibold text-lg">Web Development</h5>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              Laravel • CodeIgniter • React • REST API
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-green-400 to-emerald-500">
+          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 flex items-center justify-center rounded-xl
+              bg-green-100 dark:bg-green-500/20">
+                <i class="fa fa-mobile-alt text-green-500"></i>
+              </div>
+              <h5 class="font-semibold text-lg">Android Development</h5>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              Kotlin • Mobile UI
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-500">
+          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 flex items-center justify-center rounded-xl
+              bg-blue-100 dark:bg-blue-500/20">
+                <i class="fa fa-database text-blue-500"></i>
+              </div>
+              <h5 class="font-semibold text-lg">System Analysis</h5>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              SPBE • API Testing • Documentation
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-purple-400 to-pink-500">
+          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 flex items-center justify-center rounded-xl
+              bg-purple-100 dark:bg-purple-500/20">
+                <i class="fa fa-file-alt text-purple-500"></i>
+              </div>
+              <h5 class="font-semibold text-lg">Administrasi</h5>
+            </div>
+
+            <p class="text-sm text-slate-600 dark:text-slate-300">
+              Word • Excel • Access • PowerPoint
+            </p>
+
+          </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ===== ITEM 3 ===== -->
-    <div class="relative pl-16 group" data-aos="fade-up" data-aos-delay="200">
+    <!-- ================= SOFT SKILLS MODERN ================= -->
+<div>
+  <h4 class="text-lg font-semibold mb-10 text-indigo-500 flex items-center gap-2">
+    <i class="fa fa-users"></i> Soft Skills
+  </h4>
 
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-        <i class="fa fa-building text-white"></i>
-      </div>
+  <div class="grid md:grid-cols-2 gap-8">
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition hover:-translate-y-1 flex gap-4 items-start">
+    <!-- TEAMWORK -->
+    <div class="group relative rounded-2xl overflow-hidden">
 
-        <!-- LOGO -->
-        <img src="./img/diskominfo.png" alt="Diskominfo"
-          class="w-14 h-14 object-contain rounded-lg bg-white p-1 shadow">
+      <!-- GLOW -->
+      <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-400
+      opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
 
-        <!-- CONTENT -->
-        <div>
-          <span class="text-xs text-slate-400 flex items-center gap-2 mb-1">
-            <i class="fa fa-calendar"></i> Apr 2025 – Jun 2025
-          </span>
+      <div class="relative p-6 rounded-2xl
+      bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl
+      border border-white/20 dark:border-slate-700
+      shadow-md group-hover:shadow-2xl
+      transition duration-500
+      group-hover:-translate-y-2">
 
-          <h4 class="text-lg font-semibold text-indigo-500 flex items-center gap-2">
-            Diskominfo Tasikmalaya
-          </h4>
+        <div class="flex items-center gap-4 mb-4">
 
-          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
-            Web Developer Intern dalam pengembangan sistem digital pemerintahan.
-          </p>
+          <!-- ICON -->
+          <div class="relative">
+            <div class="absolute inset-0 bg-pink-400 blur-md opacity-30 rounded-xl"></div>
+            <div class="relative w-12 h-12 flex items-center justify-center rounded-xl
+            bg-pink-100 dark:bg-pink-500/20">
+              <i class="fa fa-users text-pink-500"></i>
+            </div>
+          </div>
 
-          <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 list-disc pl-5">
-            <li>UI development dengan React</li>
-            <li>Responsive design optimization</li>
-            <li>JWT authentication Laravel</li>
-            <li>Dokumentasi teknis sistem</li>
-          </ul>
+          <h5 class="font-semibold text-lg">Teamwork</h5>
         </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Kolaborasi efektif dalam tim
+        </p>
+
+        <!-- LINE -->
+        <div class="mt-4 h-[2px] w-0 bg-gradient-to-r from-pink-400 to-rose-400
+        group-hover:w-full transition-all duration-500"></div>
+
+      </div>
+    </div>
+
+    <!-- PROBLEM SOLVING -->
+    <div class="group relative rounded-2xl overflow-hidden">
+
+      <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400
+      opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
+
+      <div class="relative p-6 rounded-2xl
+      bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl
+      border border-white/20 dark:border-slate-700
+      shadow-md group-hover:shadow-2xl
+      transition duration-500
+      group-hover:-translate-y-2">
+
+        <div class="flex items-center gap-4 mb-4">
+
+          <div class="relative">
+            <div class="absolute inset-0 bg-yellow-400 blur-md opacity-30 rounded-xl"></div>
+            <div class="relative w-12 h-12 flex items-center justify-center rounded-xl
+            bg-yellow-100 dark:bg-yellow-500/20">
+              <i class="fa fa-lightbulb text-yellow-500"></i>
+            </div>
+          </div>
+
+          <h5 class="font-semibold text-lg">Problem Solving</h5>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Analisis & solusi efektif
+        </p>
+
+        <div class="mt-4 h-[2px] w-0 bg-gradient-to-r from-yellow-400 to-orange-400
+        group-hover:w-full transition-all duration-500"></div>
+
+      </div>
+    </div>
+
+    <!-- TIME MANAGEMENT -->
+    <div class="group relative rounded-2xl overflow-hidden">
+
+      <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400
+      opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
+
+      <div class="relative p-6 rounded-2xl
+      bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl
+      border border-white/20 dark:border-slate-700
+      shadow-md group-hover:shadow-2xl
+      transition duration-500
+      group-hover:-translate-y-2">
+
+        <div class="flex items-center gap-4 mb-4">
+
+          <div class="relative">
+         
+            <div class="relative w-12 h-12 flex items-center justify-center rounded-xl
+            bg-cyan-100 dark:bg-cyan-500/20">
+              <i class="fa fa-clock text-cyan-500"></i>
+            </div>
+          </div>
+
+          <h5 class="font-semibold text-lg">Time Management</h5>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+          Efisiensi waktu kerja
+        </p>
+
+        <div class="mt-4 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-400
+        group-hover:w-full transition-all duration-500"></div>
 
       </div>
     </div>
 
   </div>
-</section><!-- ================= SKILLS ================= -->
-<section id="skills" class="py-20 px-6 bg-slate-100 dark:bg-slate-800">
-  
-  <!-- TITLE -->
-  <h3 class="text-3xl font-bold text-center mb-16 flex justify-center items-center gap-3">
-    <i class="fa fa-star text-indigo-500"></i> Skills & Expertise
-  </h3>
-
-  <div class="max-w-6xl mx-auto space-y-16">
-
-    <!-- ================= HARD SKILLS ================= -->
-    <div>
-      <h4 class="text-xl font-semibold mb-8 text-indigo-500 flex items-center gap-2">
-        <i class="fa fa-code"></i> Hard Skills
-      </h4>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Web Dev -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-indigo-100 dark:bg-indigo-500/20 mb-4">
-            <i class="fa fa-globe text-indigo-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">Web Development</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Laravel • CodeIgniter • React • REST API
-          </p>
-        </div>
-
-        <!-- Android -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-100 dark:bg-green-500/20 mb-4">
-            <i class="fa fa-mobile-alt text-green-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">Android Development</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Kotlin • Mobile UI
-          </p>
-        </div>
-
-        <!-- System Analysis -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-500/20 mb-4">
-            <i class="fa fa-database text-blue-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">System Analysis</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            SPBE • API Testing • Documentation
-          </p>
-        </div>
-
-        <!-- Admin -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-500/20 mb-4">
-            <i class="fa fa-file-alt text-purple-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">Administrasi</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Word • Excel • Access • PowerPoint
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ================= SOFT SKILLS ================= -->
-    <div>
-      <h4 class="text-xl font-semibold mb-8 text-indigo-500 flex items-center gap-2">
-        <i class="fa fa-users"></i> Soft Skills
-      </h4>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Teamwork -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-pink-100 dark:bg-pink-500/20 mb-4">
-            <i class="fa fa-users text-pink-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">Teamwork</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Kolaborasi efektif dalam tim dan komunikasi yang baik
-          </p>
-        </div>
-
-        <!-- Problem Solving -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-yellow-100 dark:bg-yellow-500/20 mb-4">
-            <i class="fa fa-lightbulb text-yellow-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">Problem Solving</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Mampu menganalisis dan menyelesaikan masalah secara efektif
-          </p>
-        </div>
-
-        <!-- Time Management -->
-        <div class="group p-6 bg-white dark:bg-slate-700 rounded-2xl shadow hover:shadow-xl hover:-translate-y-2 transition">
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-cyan-100 dark:bg-cyan-500/20 mb-4">
-            <i class="fa fa-clock text-cyan-500"></i>
-          </div>
-          <h5 class="font-semibold text-lg mb-2">Time Management</h5>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Mengatur waktu secara efisien untuk mencapai target
-          </p>
-        </div>
-
-      </div>
-    </div>
+</div>
 
   </div>
 </section>
