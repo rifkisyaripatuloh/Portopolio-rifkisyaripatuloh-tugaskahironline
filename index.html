@@ -4,692 +4,874 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfolio - Rifki Syarip</title>
-<style>
-@keyframes slideX {
-  0% { transform: translateX(-40px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 0.8; }
-}
 
-@keyframes slideY {
-  0% { transform: translateY(40px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 0.8; }
-}
-
-.animate-slide-x {
-  animation: slideX 2s ease-in-out infinite alternate;
-}
-
-.animate-slide-y {
-  animation: slideY 3s ease-in-out infinite alternate;
-}
-
-@keyframes slideX {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(40px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes slideY {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(40px); }
-  100% { transform: translateY(0); }
-}
-
-.animate-slide-x {
-  animation: slideX 8s infinite ease-in-out;
-}
-
-.animate-slide-y {
-  animation: slideY 10s infinite ease-in-out;
-}
-
-/* BADGE STYLE */
-.skill-badge {
-  @apply flex items-center gap-2 px-5 py-2 rounded-full
-  bg-white/70 dark:bg-slate-800/70
-  backdrop-blur-lg
-  border border-white/20 dark:border-slate-700
-  text-sm font-medium
-  shadow-sm hover:shadow-lg
-  transition duration-300
-  hover:scale-105 cursor-default;
-}
-
-/* MARQUEE ANIMATION */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 18s linear infinite;
-}
-@keyframes swing {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(1deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-1deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.group:hover .relative.w-72 {
-  animation: swing 1s ease-in-out;
-}
-
-
-</style>
-  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { darkMode: 'class' }
   </script>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- ICON -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:#6366f1;border-radius:3px}
+
+@keyframes blob{
+  0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:scale(1)}
+  33%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:scale(1.04)}
+  66%{border-radius:50% 60% 30% 60%/30% 70% 40% 60%;transform:scale(0.97)}
+}
+.animate-blob{animation:blob 12s infinite ease-in-out}
+.delay-2000{animation-delay:2s}
+.delay-4000{animation-delay:4s}
+
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee{overflow:hidden;position:relative}
+.marquee-track{display:flex;width:max-content;animation:marquee 22s linear infinite}
+.marquee-track>div{display:flex;gap:.75rem;padding-right:.75rem}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+.skill-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:999px;font-size:12.5px;font-weight:500;
+  white-space:nowrap;cursor:default;transition:all .25s;
+  background:rgba(255,255,255,0.78);border:1px solid rgba(99,102,241,0.15);
+  color:#374151;backdrop-filter:blur(8px);
+  box-shadow:0 1px 3px rgba(0,0,0,0.06);
+}
+.dark .skill-badge{background:rgba(30,41,59,0.78);border-color:rgba(99,102,241,0.22);color:#cbd5e1}
+.skill-badge:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(99,102,241,0.18)}
+
+@keyframes slideX{0%,100%{transform:translateX(0)}50%{transform:translateX(28px)}}
+@keyframes slideY{0%,100%{transform:translateY(0)}50%{transform:translateY(28px)}}
+.animate-slide-x{animation:slideX 8s infinite ease-in-out}
+.animate-slide-y{animation:slideY 10s infinite ease-in-out}
+
+@keyframes lanyardIdle{
+  0%,100%{transform:translateX(-50%) rotate(-0.7deg)}
+  50%{transform:translateX(-50%) rotate(0.7deg)}
+}
+.lanyard-idle{
+  animation:lanyardIdle 4s ease-in-out infinite;
+  transform-origin:top center;
+}
+</style>
 </head>
 
 <body class="font-[Poppins] relative overflow-x-hidden
-bg-gradient-to-br from-indigo-50 via-white to-blue-100
-dark:from-slate-950 dark:via-slate-900 dark:to-slate-950
-text-slate-700 dark:text-slate-200
-transition duration-500">
+  bg-gradient-to-br from-slate-50 via-indigo-50/30 to-blue-50
+  dark:from-slate-950 dark:via-slate-900 dark:to-slate-950
+  text-slate-700 dark:text-slate-200 transition-colors duration-500">
 
-<!-- GLOBAL BACKGROUND -->
-<div class="fixed inset-0 -z-10 overflow-hidden">
-
-  <!-- GRADIENT ANIMATION -->
-  <div class="absolute w-[600px] h-[600px] bg-indigo-400/30 rounded-full blur-3xl
-  top-[-100px] left-[-100px] animate-blob"></div>
-
-  <div class="absolute w-[500px] h-[500px] bg-blue-400/30 rounded-full blur-3xl
-  bottom-[-120px] right-[-100px] animate-blob delay-2000"></div>
-
-  <div class="absolute w-[400px] h-[400px] bg-purple-400/20 rounded-full blur-3xl
-  top-[40%] left-[40%] animate-blob delay-4000"></div>
-
+<!-- BG BLOBS -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+  <div class="absolute w-[500px] h-[500px] bg-indigo-300/20 dark:bg-indigo-500/8 rounded-full blur-3xl top-[-80px] left-[-80px] animate-blob"></div>
+  <div class="absolute w-[400px] h-[400px] bg-blue-300/20 dark:bg-blue-500/8 rounded-full blur-3xl bottom-[-80px] right-[-80px] animate-blob delay-2000"></div>
+  <div class="absolute w-[350px] h-[350px] bg-purple-300/15 dark:bg-purple-500/6 rounded-full blur-3xl top-[40%] left-[40%] animate-blob delay-4000"></div>
 </div>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 w-full z-50
-backdrop-blur-xl bg-white/60 dark:bg-slate-900/60
-border-b border-white/20 dark:border-slate-700/50
-shadow-sm">
-
-<div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-
-<!-- LOGO -->
-<h1 class="text-lg font-semibold flex items-center gap-2 
-bg-gradient-to-r from-indigo-500 to-blue-400 
-bg-clip-text text-transparent">
-
-<i class="fa-solid fa-code"></i> Rifki Syarip
-
-</h1>
-
-<!-- MENU DESKTOP -->
-<ul class="hidden md:flex gap-8 font-medium items-center">
-
-<li>
-<a href="#about" class="hover:text-indigo-500 flex items-center gap-1 transition">
-<i class="fa fa-user text-slate-500 dark:text-indigo-500"></i>
-About
-</a>
-</li>
-
-<li>
-<a href="#resume" class="hover:text-indigo-500 flex items-center gap-1 transition">
-<i class="fa fa-briefcase text-slate-500 dark:text-indigo-500"></i>
-Resume
-</a>
-</li>
-
-<li>
-<a href="#skills" class="hover:text-indigo-500 flex items-center gap-1 transition">
-<i class="fa fa-star text-slate-500 dark:text-indigo-500"></i>
-Skills
-</a>
-</li>
-
-<li>
-<a href="#portfolio" class="hover:text-indigo-500 flex items-center gap-1 transition">
-<i class="fa fa-image text-slate-500 dark:text-indigo-500"></i>
-Portfolio
-</a>
-</li>
-
-<li>
-<a href="#contact" class="hover:text-indigo-500 flex items-center gap-1 transition">
-<i class="fa fa-envelope text-slate-500 dark:text-indigo-500"></i>
-Contact
-</a>
-</li>
-
-</ul>
-
-<!-- RIGHT SIDE -->
-<div class="flex items-center gap-4">
-
-<!-- DARK MODE TOGGLE -->
-<label class="flex items-center cursor-pointer">
-
-<input type="checkbox" id="toggleDark" class="sr-only">
-
-<div class="w-14 h-7 bg-slate-300 dark:bg-slate-700 rounded-full 
-transition duration-300 relative flex items-center px-1"
-id="switchBg">
-
-<div id="dot"
-class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full 
-transition-all duration-300 flex items-center justify-center text-[10px]">
-
-<span id="iconSun">☀️</span>
-<span id="iconMoon" class="hidden">🌙</span>
-
-</div>
-
-</div>
-
-</label>
-
-<!-- HAMBURGER -->
-<button id="menu-btn" class="md:hidden text-2xl text-slate-700 dark:text-white">
-<i class="fa fa-bars"></i>
-</button>
-
-</div>
-
-</div>
-
-
-<!-- MOBILE MENU -->
-<div id="mobile-menu"
-class="hidden md:hidden bg-white dark:bg-slate-900 
-border-t border-slate-200 dark:border-slate-700">
-
-<ul class="flex flex-col gap-4 p-6 font-medium">
-
-<li>
-<a href="#about" class="flex items-center gap-2 hover:text-indigo-500">
-<i class="fa fa-user text-slate-500 dark:text-indigo-500"></i>
-About
-</a>
-</li>
-
-<li>
-<a href="#resume" class="flex items-center gap-2 hover:text-indigo-500">
-<i class="fa fa-briefcase text-slate-500 dark:text-indigo-500"></i>
-Resume
-</a>
-</li>
-
-<li>
-<a href="#skills" class="flex items-center gap-2 hover:text-indigo-500">
-<i class="fa fa-star text-slate-500 dark:text-indigo-500"></i>
-Skills
-</a>
-</li>
-
-<li>
-<a href="#portfolio" class="flex items-center gap-2 hover:text-indigo-500">
-<i class="fa fa-image text-slate-500 dark:text-indigo-500"></i>
-Portfolio
-</a>
-</li>
-
-<li>
-<a href="#contact" class="flex items-center gap-2 hover:text-indigo-500">
-<i class="fa fa-envelope text-slate-500 dark:text-indigo-500"></i>
-Contact
-</a>
-</li>
-
-</ul>
-
-</div>
-
-</nav>
-  </div>
-</nav>
-<!-- ================= ABOUT ================= -->
-<section id="about" class="pt-32 pb-20 px-6 
-bg-white/70 dark:bg-slate-800/70
-backdrop-blur-xl
-border border-white/20 dark:border-slate-700
-shadow-lg hover:shadow-xl
-transition duration-300">
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-<div class="flex justify-center items-center min-h-[600px] perspective-[1500px]">
-  
-  <div class="relative group cursor-pointer">
-    
-    <div class="absolute -top-44 left-1/2 -translate-x-1/2 z-10 w-64 h-48 pointer-events-none">
-      <div class="absolute left-4 top-0 w-10 h-44 border-l-[14px] border-slate-700/90 rounded-[100%_0_0_100%] rotate-[-5deg] shadow-lg after:content-[''] after:absolute after:inset-0 after:bg-[url('https://www.transparenttextures.com/patterns/fabric-of-the-nation.png')] after:opacity-20"></div>
-      <div class="absolute right-4 top-0 w-10 h-44 border-r-[14px] border-slate-800/95 rounded-[0_100%_100%_0] rotate-[5deg] shadow-lg after:content-[''] after:absolute after:inset-0 after:bg-[url('https://www.transparenttextures.com/patterns/fabric-of-the-nation.png')] after:opacity-20"></div>
-      
-      <div class="absolute bottom-[-15px] left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div class="w-5 h-5 border-4 border-gray-400 rounded-full shadow-md"></div>
-        <div class="w-4 h-8 bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400 rounded-b-lg shadow-inner -mt-1 relative">
-           <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-4 bg-gray-500/30 rounded-full"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-64 h-12 bg-black/20 blur-[40px] rounded-[100%] scale-x-150"></div>
-
-    <div class="relative w-[300px] h-[450px] rounded-[24px] overflow-hidden
-      bg-white dark:bg-slate-900 
-      border border-slate-200 dark:border-slate-800
-      shadow-[20px_40px_80px_rgba(0,0,0,0.25)]
-      transition-all duration-700 ease-out
-      group-hover:rotate-x-[15deg] group-hover:-rotate-y-[10deg] group-hover:translate-y-[-10px] group-hover:shadow-[0_50px_100px_rgba(0,0,0,0.3)]">
-      
-      <div class="absolute top-0 left-0 w-full h-full opacity-10 dark:opacity-20 pointer-events-none">
-        <div class="absolute top-[-50px] right-[-50px] w-64 h-64 bg-indigo-500 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-[-50px] left-[-50px] w-64 h-64 bg-emerald-500 rounded-full blur-3xl"></div>
-      </div>
-
-      <div class="absolute top-0 left-0 w-full h-32 bg-slate-50 dark:bg-slate-800/50 clip-path-wave">
-         <svg class="absolute bottom-0 w-full" viewBox="0 0 500 150" preserveAspectRatio="none"><path d="M0.00,49.98 C149.99,150.00 349.85,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" class="fill-white dark:fill-slate-900"></path></svg>
-      </div>
-
-      <div class="relative z-10 flex flex-col items-center pt-8 h-full">
-        
-        <div class="flex items-center gap-2 mb-8">
-           <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-lg">
-              <i class="fa-solid fa-bolt-lightning text-sm"></i>
-           </div>
-           <span class="font-black tracking-tighter text-slate-800 dark:text-white">RIFKI</span>
-        </div>
-
-        <div class="relative w-36 h-36 mb-6">
-          <div class="absolute inset-0 bg-slate-200 dark:bg-slate-700 rounded-full animate-pulse"></div>
-          <img src="./img/foto-rifki.jpeg" class="relative w-full h-full object-cover rounded-full border-[6px] border-white dark:border-slate-900 shadow-2xl">
-          <div class="absolute bottom-2 right-2 w-6 h-6 bg-emerald-500 border-4 border-white dark:border-slate-900 rounded-full"></div>
-        </div>
-
-        <div class="text-center px-6">
-          <h3 class="font-bold text-2xl text-slate-900 dark:text-white tracking-tight leading-tight">Rifki Syaripatuloh</h3>
-        </div>
-
-        <div class="mt-auto mb-8 px-8 w-full flex flex-col items-center">
-          <div class="w-full h-12 bg-[url('https://www.scandit.com/wp-content/themes/scandit/assets/img/barcode-hero.png')] bg-contain bg-no-repeat bg-center mix-blend-multiply dark:invert opacity-80"></div>
-          <div class="flex gap-4 mt-6 text-slate-400 text-lg">
-            <i class="fa-brands fa-laravel hover:text-red-500 transition-all"></i>
-            <i class="fa-brands fa-react hover:text-blue-400 transition-all"></i>
-            <i class="fa-brands fa-php hover:text-indigo-500 transition-all"></i>
-            <i class="fa-solid fa-database hover:text-emerald-500 transition-all"></i>
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-xl
+  bg-white/70 dark:bg-slate-900/70
+  border-b border-slate-200/50 dark:border-slate-700/40 shadow-sm">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-5 sm:px-8 py-4">
+    <h1 class="text-base sm:text-lg font-bold flex items-center gap-2
+      bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
+      <i class="fa-solid fa-code text-indigo-500"></i> Rifki Syarip
+    </h1>
+    <ul class="hidden md:flex gap-6 lg:gap-8 font-medium text-sm items-center">
+      <li><a href="#about"     class="flex items-center gap-1.5 hover:text-indigo-500 transition"><i class="fa fa-user text-slate-400 dark:text-indigo-400 text-xs"></i>About</a></li>
+      <li><a href="#resume"    class="flex items-center gap-1.5 hover:text-indigo-500 transition"><i class="fa fa-briefcase text-slate-400 dark:text-indigo-400 text-xs"></i>Resume</a></li>
+      <li><a href="#skills"    class="flex items-center gap-1.5 hover:text-indigo-500 transition"><i class="fa fa-star text-slate-400 dark:text-indigo-400 text-xs"></i>Skills</a></li>
+      <li><a href="#portfolio" class="flex items-center gap-1.5 hover:text-indigo-500 transition"><i class="fa fa-image text-slate-400 dark:text-indigo-400 text-xs"></i>Portfolio</a></li>
+      <li><a href="#contact"   class="flex items-center gap-1.5 hover:text-indigo-500 transition"><i class="fa fa-envelope text-slate-400 dark:text-indigo-400 text-xs"></i>Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <label class="flex items-center cursor-pointer">
+        <input type="checkbox" id="toggleDark" class="sr-only">
+        <div class="w-12 h-6 bg-slate-200 dark:bg-slate-700 rounded-full relative transition-colors duration-300">
+          <div id="dot" class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-all duration-300 flex items-center justify-center text-[9px]">
+            <span id="iconSun">☀️</span><span id="iconMoon" class="hidden">🌙</span>
           </div>
         </div>
-
-      </div>
-
-      <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+      </label>
+      <button id="menu-btn" class="md:hidden text-xl text-slate-600 dark:text-slate-300">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
   </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800">
+    <ul class="flex flex-col gap-2 p-5 font-medium text-sm">
+      <li><a href="#about"     class="flex items-center gap-2 py-1.5 hover:text-indigo-500"><i class="fa fa-user w-4 text-center text-indigo-400 text-xs"></i>About</a></li>
+      <li><a href="#resume"    class="flex items-center gap-2 py-1.5 hover:text-indigo-500"><i class="fa fa-briefcase w-4 text-center text-indigo-400 text-xs"></i>Resume</a></li>
+      <li><a href="#skills"    class="flex items-center gap-2 py-1.5 hover:text-indigo-500"><i class="fa fa-star w-4 text-center text-indigo-400 text-xs"></i>Skills</a></li>
+      <li><a href="#portfolio" class="flex items-center gap-2 py-1.5 hover:text-indigo-500"><i class="fa fa-image w-4 text-center text-indigo-400 text-xs"></i>Portfolio</a></li>
+      <li><a href="#contact"   class="flex items-center gap-2 py-1.5 hover:text-indigo-500"><i class="fa fa-envelope w-4 text-center text-indigo-400 text-xs"></i>Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ABOUT -->
+<section id="about" class="pt-28 sm:pt-32 pb-20 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+  <div class="flex justify-center items-start order-1 lg:order-none" data-aos="fade-right">
+
+  <style>
+    .id-scene {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      transform-origin: top center;
+    }
+    .lanyard-svg {
+      display: block;
+      width: 282px;
+      height: auto;
+      position: relative;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+    #idCard {
+      margin-top: -46px; /* overlap = sejajarkan klip dgn punch hole */
+      position: relative;
+      z-index: 5;
+      width: 282px;
+      height: 415px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+      box-shadow:
+        0 4px 8px rgba(0,0,0,0.10),
+        0 14px 32px rgba(0,0,0,0.14),
+        0 30px 54px rgba(0,0,0,0.09),
+        inset 0 1px 0 rgba(255,255,255,0.13);
+    }
+    .ground-shadow {
+      width: 196px;
+      height: 13px;
+      background: radial-gradient(ellipse, rgba(0,0,0,0.17) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      margin-top: 6px;
+      transition: all 0.2s;
+    }
+    /* Responsive scaling */
+    @media (max-width: 360px) {
+      .id-scene { transform: scale(0.78); }
+    }
+    @media (min-width: 361px) and (max-width: 480px) {
+      .id-scene { transform: scale(0.88); }
+    }
+    @media (min-width: 481px) and (max-width: 640px) {
+      .id-scene { transform: scale(0.95); }
+    }
+    /* === TIMELINE LINE ANIMATION === */
+@keyframes growLine {
+  from { height: 0; opacity: 0; }
+  to { height: 100%; opacity: 1; }
+}
+
+#resume .absolute.left-5 {
+  animation: growLine 1.2s ease forwards;
+  transform-origin: top;
+}
+
+/* === CARD FADE + FLOAT IN === */
+@keyframes fadeUpSoft {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+#resume .relative.pl-14 {
+  animation: fadeUpSoft 0.8s ease forwards;
+}
+
+/* DELAY BERURUTAN */
+#resume .relative.pl-14:nth-child(2) { animation-delay: .2s; }
+#resume .relative.pl-14:nth-child(4) { animation-delay: .35s; }
+#resume .relative.pl-14:nth-child(6) { animation-delay: .5s; }
+#resume .relative.pl-14:nth-child(8) { animation-delay: .65s; }
+#resume .relative.pl-14:nth-child(10){ animation-delay: .8s; }
+
+/* === CARD HOVER PREMIUM === */
+#resume .bg-white,
+#resume .dark\:bg-slate-800 {
+  transition: all .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#resume .bg-white:hover,
+#resume .dark\:bg-slate-800:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+}
+
+/* === SHINE EFFECT === */
+#resume .bg-white::before,
+#resume .dark\:bg-slate-800::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+#resume .bg-white:hover::before,
+#resume .dark\:bg-slate-800:hover::before {
+  opacity: 1;
+}
+
+/* === ICON PULSE === */
+@keyframes pulseSoft {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(99,102,241,.4); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(99,102,241,0); }
+  100% { transform: scale(1); }
+}
+
+#resume .rounded-full {
+  animation: pulseSoft 2.5s infinite;
+}
+
+/* === IMAGE HOVER === */
+#resume img {
+  transition: transform .35s ease;
+}
+
+#resume .bg-white:hover img,
+#resume .dark\:bg-slate-800:hover img {
+  transform: scale(1.08) rotate(1deg);
+}
+
+/* === TEXT SMOOTH === */
+#resume h4 {
+  transition: letter-spacing .3s ease;
+}
+
+#resume .bg-white:hover h4,
+#resume .dark\:bg-slate-800:hover h4 {
+  letter-spacing: 0.5px;
+}
+
+
+/* TIMELINE PROGRESS */
+.timeline-progress {
+  height: 0%;
+  transition: height 0.4s ease-out;
+}
+
+/* ITEM MASUK (lebih smooth dari AOS) */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition: all 0.6s cubic-bezier(.22,1,.36,1);
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* CARD HOVER */
+.timeline-item > div:last-child {
+  transition: all 0.35s ease;
+}
+
+.timeline-item:hover > div:last-child {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* ICON PULSE */
+.timeline-item .absolute {
+  transition: all 0.3s ease;
+}
+
+.timeline-item.show .absolute {
+  animation: pulseDot 1.6s ease infinite;
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(99,102,241,0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(99,102,241,0); }
+  100% { box-shadow: 0 0 0 0 rgba(99,102,241,0); }
+}
+
+/* LINE GLOW */
+.timeline-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.2), transparent);
+  animation: flowLine 4s linear infinite;
+}
+
+@keyframes flowLine {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+/* CARD ON SCROLL PREMIUM */
+.card-animate {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  filter: blur(8px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-animate.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* STAGGER DELAY */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+  </style>
+
+  <div class="id-scene">
+
+    <!-- LANYARD -->
+    <svg class="lanyard-svg" viewBox="0 0 296 252" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="sp1" patternUnits="userSpaceOnUse" width="8" height="8">
+          <rect width="8" height="8" fill="#2c3e52"/>
+          <line x1="0" y1="4" x2="8" y2="4" stroke="#1d2d3d" stroke-width="1.2"/>
+        </pattern>
+        <pattern id="sp2" patternUnits="userSpaceOnUse" width="8" height="8">
+          <rect width="8" height="8" fill="#253444"/>
+          <line x1="0" y1="4" x2="8" y2="4" stroke="#1b2b3a" stroke-width="1.2"/>
+        </pattern>
+        <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="rgba(255,255,255,0)"/>
+          <stop offset="45%"  stop-color="rgba(255,255,255,0.12)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </linearGradient>
+        <linearGradient id="cMetal" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#b6bcc3"/>
+          <stop offset="40%"  stop-color="#e8eaec"/>
+          <stop offset="100%" stop-color="#98a0a8"/>
+        </linearGradient>
+        <linearGradient id="cBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#d2d6da"/>
+          <stop offset="45%"  stop-color="#f0f3f5"/>
+          <stop offset="100%" stop-color="#98a0a8"/>
+        </linearGradient>
+      </defs>
+      <!-- Tali kiri -->
+      <path d="M87 0 C83 54 61 93 67 146 C72 178 101 198 148 203" stroke="url(#sp1)" stroke-width="21" stroke-linecap="round" fill="none"/>
+      <path d="M87 0 C83 54 61 93 67 146 C72 178 101 198 148 203" stroke="url(#sheen)" stroke-width="21" stroke-linecap="round" fill="none"/>
+      <path id="lp" d="M87 5 C83 57 62 96 68 148 C73 180 103 200 148 205" fill="none"/>
+      <text font-size="6" fill="rgba(255,255,255,0.22)" font-family="Poppins,system-ui" font-weight="700" letter-spacing="3.5">
+        <textPath href="#lp" startOffset="3%">RIFKI DEV · RIFKI DEV · RIFKI DEV ·</textPath>
+      </text>
+      <!-- Tali kanan -->
+      <path d="M209 0 C213 54 235 93 229 146 C224 178 195 198 148 203" stroke="url(#sp2)" stroke-width="21" stroke-linecap="round" fill="none"/>
+      <path d="M209 0 C213 54 235 93 229 146 C224 178 195 198 148 203" stroke="url(#sheen)" stroke-width="21" stroke-linecap="round" fill="none"/>
+      <path id="rp" d="M209 5 C213 57 234 96 228 148 C223 180 193 200 148 205" fill="none"/>
+      <text font-size="6" fill="rgba(255,255,255,0.22)" font-family="Poppins,system-ui" font-weight="700" letter-spacing="3.5">
+        <textPath href="#rp" startOffset="3%">RIFKI DEV · RIFKI DEV · RIFKI DEV ·</textPath>
+      </text>
+      <!-- Klip logam -->
+      <ellipse cx="148" cy="203" rx="18" ry="7.5" fill="#1b2736" stroke="#384d60" stroke-width="1.2"/>
+      <rect x="140" y="203" width="16" height="6" rx="2.5" fill="#222f40" stroke="#3b4e62" stroke-width="0.8"/>
+      <rect x="142" y="209" width="12" height="30" rx="3.5" fill="url(#cBody)" stroke="#889099" stroke-width="0.8"/>
+      <rect x="144" y="212" width="8" height="24" rx="2.5" fill="url(#cMetal)" stroke="#b5bcc3" stroke-width="0.5"/>
+      <rect x="145" y="213" width="3" height="22" rx="1.8" fill="rgba(255,255,255,0.42)"/>
+      <circle cx="148" cy="227" r="3.8" fill="#98a0a8" stroke="#bec4ca" stroke-width="0.6"/>
+      <circle cx="148" cy="227" r="1.6" fill="#dde0e3"/>
+      <path d="M144 239 Q148 248 152 239" stroke="#889099" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M142 241 Q148 251 154 241" stroke="#889099" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <!-- ID CARD -->
+    <div id="idCard">
+
+      <!-- BG -->
+      <div style="position:absolute;inset:0;background:#18243a;"></div>
+      <!-- Blob teal -->
+      <div style="position:absolute;bottom:-22px;right:-28px;width:182px;height:202px;background:#13a87a;border-radius:52% 62% 42% 70%;opacity:0.92;"></div>
+      <div style="position:absolute;bottom:50px;right:20px;width:106px;height:124px;background:#1cd69e;border-radius:62% 42% 68% 32%;opacity:0.48;"></div>
+      <!-- Blob accent -->
+      <div style="position:absolute;top:-28px;left:-28px;width:120px;height:120px;background:#6366f1;border-radius:50%;opacity:0.07;filter:blur(18px);"></div>
+      <!-- Wave atas -->
+      <div style="position:absolute;top:0;left:0;right:0;height:126px;overflow:hidden;">
+        <svg viewBox="0 0 282 126" preserveAspectRatio="none" style="width:100%;height:100%;">
+          <path d="M0,52 C52,92 106,17 166,52 C215,82 250,46 282,60 L282,0 L0,0 Z" fill="rgba(19,168,122,0.10)"/>
+          <path d="M0,72 C72,120 148,26 216,72 C246,88 265,65 282,72 L282,0 L0,0 Z" fill="rgba(19,168,122,0.06)"/>
+        </svg>
+      </div>
+      <!-- Grid dots -->
+      <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:18px 18px;z-index:1;"></div>
+      <!-- Punch hole — harus sejajar dgn klip SVG -->
+      <div style="position:absolute;top:13px;left:50%;transform:translateX(-50%);width:23px;height:7px;border-radius:4px;background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.07);z-index:20;"></div>
+      <!-- Edges -->
+      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.20),transparent);z-index:20;"></div>
+      <div style="position:absolute;top:0;left:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.07),transparent);z-index:20;"></div>
+
+      <!-- CONTENT -->
+      <div style="position:relative;z-index:5;display:flex;flex-direction:column;align-items:flex-start;height:100%;padding:30px 20px 18px;">
+        <!-- Logo + Active badge -->
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;width:100%;">
+          <div style="width:31px;height:31px;background:rgba(255,255,255,0.07);border-radius:7px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.08);">
+            <i class="fa-solid fa-bolt-lightning" style="color:#13a87a;font-size:12px;"></i>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#f1f5f9;letter-spacing:0.4px;line-height:1.1;">RIFKI<span style="color:#13a87a;">Syarip</span></div>
+            <div style="font-size:8px;color:rgba(255,255,255,0.36);letter-spacing:1.8px;text-transform:uppercase;"></div>
+          </div>
+          <div style="margin-left:auto;font-size:7.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(19,168,122,0.18);color:#34d399;border:1px solid rgba(19,168,122,0.30);letter-spacing:1px;text-transform:uppercase;">ACTIVE</div>
+        </div>
+        <!-- Foto -->
+        <div style="width:100%;display:flex;justify-content:flex-end;margin-bottom:8px;">
+          <div style="width:84px;height:98px;border-radius:10px;overflow:hidden;border:2px solid rgba(255,255,255,0.10);box-shadow:0 6px 20px rgba(0,0,0,0.38);">
+            <img src="./img/foto-rifki.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+          </div>
+        </div>
+        <!-- Nama -->
+        <div style="margin-top:auto;width:100%;">
+          <div style="font-size:15.5px;font-weight:700;color:#f1f5f9;letter-spacing:0.2px;line-height:1.2;">Rifki Syaripatuloh</div>
+          <div style="font-size:8.5px;color:rgba(255,255,255,0.48);letter-spacing:2px;text-transform:uppercase;margin-top:3px;">IT Fresh Graduate</div>
+          <div style="font-family:'Courier New',monospace;font-size:8px;color:rgba(255,255,255,0.22);letter-spacing:2.5px;text-transform:uppercase;margin-top:6px;">EMP · 2026-0425</div>
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.07);margin:9px 0;"></div>
+          <!-- Chips -->
+          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px;">
+            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(99,102,241,0.17);color:#a5b4fc;border:1px solid rgba(99,102,241,0.24);">Laravel</span>
+            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(56,189,248,0.14);color:#7dd3fc;border:1px solid rgba(56,189,248,0.22);">React</span>
+            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(19,168,122,0.14);color:#6ee7b7;border:1px solid rgba(19,168,122,0.22);">PHP</span>
+            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(251,191,36,0.13);color:#fde68a;border:1px solid rgba(251,191,36,0.22);">MySQL</span>
+          </div>
+          <!-- Barcode -->
+          <div style="display:flex;align-items:stretch;height:23px;" id="barcodeEl"></div>
+        </div>
+      </div>
+
+      <!-- Sheen -->
+      <div id="cardSheen" style="position:absolute;inset:0;pointer-events:none;z-index:15;transition:background 0.14s;"></div>
+    </div>
+
+    <!-- Ground shadow -->
+    <div class="ground-shadow" id="groundShadow"></div>
+
+  </div><!-- .id-scene -->
 </div>
 
-
-
-    <!-- TEXT -->
-    <div data-aos="fade-left">
-
-      <!-- NAME -->
-      <h2 class="text-4xl font-bold leading-tight mb-3">
-        Hi, I'm 
-        <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-          Rifki Syaripatuloh
-        </span>
+    <!-- RIGHT — TEXT -->
+    <div class="text-center lg:text-left order-2" data-aos="fade-left" data-aos-delay="80">
+      <h2 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">
+        Hi, I'm
+        <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent"> Rifki Syaripatuloh</span>
       </h2>
-<!-- DESC -->
-<!-- DESC -->
-<p class="text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
-  Lulusan <b>Teknik Informatika</b> yang berfokus pada pengembangan aplikasi web dan sistem informasi. 
-  Berpengalaman menggunakan <b>Laravel, React, dan REST API</b> untuk membangun solusi digital yang efisien, scalable, dan user-friendly.
-  
-  <br><br>
+      <h3 class="text-xs sm:text-sm font-medium text-indigo-500 mb-5 flex justify-center lg:justify-start items-center gap-2">
+      </h3>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify">
+        Lulusan <b>Teknik Informatika</b> yang berfokus pada pengembangan aplikasi web dan sistem informasi.
+        Berpengalaman menggunakan <b>Laravel, React, dan REST API</b> untuk membangun solusi digital yang efisien, scalable, dan user-friendly.
+        <br><br>
+        Memiliki kemampuan dalam <b>IT Support</b> seperti troubleshooting sistem, instalasi, serta memastikan operasional teknologi berjalan optimal.
+        Selain itu berpengalaman dalam <b>administrasi dan pengolahan data</b> menggunakan Microsoft Office untuk mendukung dokumentasi dan manajemen sistem.
+        <br><br>
+        Terbiasa bekerja dalam tim, komunikatif, serta memiliki ketertarikan tinggi terhadap <b>tantangan baru</b> dan pengembangan teknologi.
+      </p>
 
-  Memiliki kemampuan dalam <b>IT Support</b> untuk melakukan troubleshooting sistem, instalasi, serta memastikan operasional teknologi berjalan dengan baik. 
-  Selain itu, juga berpengalaman dalam <b>administrasi dan pengolahan data</b> menggunakan Microsoft Office (Word, Excel, Access) 
-  guna mendukung dokumentasi, pelaporan, dan manajemen sistem.
-
-  <br><br>
-
-  Terbiasa bekerja dalam tim, komunikatif, serta memiliki ketertarikan tinggi terhadap <b>tantangan baru</b> dan pengembangan teknologi, 
-  dengan orientasi pada kualitas, efisiensi, dan pengalaman pengguna.
-</p>
-
-     <!-- SKILL BADGES MODERN -->
-<div class="mt-8 overflow-hidden relative">
-
-  <!-- GRADIENT FADE -->
-  <div class="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-white dark:from-slate-900 to-transparent z-10"></div>
-  <div class="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-white dark:from-slate-900 to-transparent z-10"></div>
-
-  <!-- SLIDER -->
-  <div class="flex gap-4 animate-marquee w-max">
-
-    <!-- ITEM -->
-    <div class="skill-badge">
-      <i class="fa-brands fa-laravel text-red-500"></i>
-      Laravel
-    </div>
-
-    <div class="skill-badge">
-      <i class="fa-brands fa-react text-blue-400"></i>
-      React
-    </div>
-
-    <div class="skill-badge">
-      <i class="fa-solid fa-plug text-purple-500"></i>
-      REST API
-    </div>
-
-
-
-    <div class="skill-badge">
-      <i class="fa-solid fa-file-excel text-green-600"></i>
-      Excel
-    </div>
-
-    <div class="skill-badge">
-      <i class="fa-solid fa-file-word text-blue-500"></i>
-      Word
-    </div>
-
-    <!-- DUPLICATE BIAR LOOP SMOOTH -->
-    <div class="skill-badge">
-      <i class="fa-brands fa-laravel text-red-500"></i>
-      Laravel
-    </div>
-
-    <div class="skill-badge">
-      <i class="fa-brands fa-react text-blue-400"></i>
-      React
-    </div>
-
-    <div class="skill-badge">
-      <i class="fa-solid fa-plug text-purple-500"></i>
-      REST API
-    </div>
-
-
-  </div>
-</div>
-
-      <!-- BUTTON -->
-      <div class="mt-8 flex flex-wrap gap-4">
-
-        <a href="#resume"
-          class="px-6 py-3 rounded-full bg-indigo-500 text-white shadow-md 
-          hover:bg-indigo-600 hover:scale-105 transition flex items-center gap-2">
-          <i class="fa fa-briefcase"></i> View Resume
-        </a>
-
-        <a href="#portfolio"
-          class="px-6 py-3 rounded-full border border-indigo-500 text-indigo-500 
-          hover:bg-indigo-500 hover:text-white hover:scale-105 transition flex items-center gap-2">
-          <i class="fa fa-image"></i> View Portfolio
-        </a>
-
+      <!-- SKILL SLIDER -->
+      <div class="mt-7 overflow-hidden relative">
+        <div class="absolute left-0 top-0 w-10 sm:w-14 h-full bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 w-10 sm:w-14 h-full bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10"></div>
+        <div class="marquee">
+          <div class="marquee-track">
+            <div>
+              <div class="skill-badge"><i class="fa-brands fa-laravel text-red-500"></i>Laravel</div>
+              <div class="skill-badge"><i class="fa-brands fa-react text-blue-400"></i>React</div>
+              <div class="skill-badge"><i class="fa-solid fa-plug text-purple-500"></i>REST API</div>
+              <div class="skill-badge"><i class="fa-solid fa-file-excel text-green-500"></i>Excel</div>
+              <div class="skill-badge"><i class="fa-solid fa-file-word text-blue-500"></i>Word</div>
+              <div class="skill-badge"><i class="fa-brands fa-php text-indigo-400"></i>PHP</div>
+            </div>
+            <div>
+              <div class="skill-badge"><i class="fa-brands fa-laravel text-red-500"></i>Laravel</div>
+              <div class="skill-badge"><i class="fa-brands fa-react text-blue-400"></i>React</div>
+              <div class="skill-badge"><i class="fa-solid fa-plug text-purple-500"></i>REST API</div>
+              <div class="skill-badge"><i class="fa-solid fa-file-excel text-green-500"></i>Excel</div>
+              <div class="skill-badge"><i class="fa-solid fa-file-word text-blue-500"></i>Word</div>
+              <div class="skill-badge"><i class="fa-brands fa-php text-indigo-400"></i>PHP</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div>
+      <!-- HIGHLIGHT GRID -->
+      <div class="mt-6 grid grid-cols-2 gap-3 text-sm">
+        <div class="flex items-center gap-2 bg-white/65 dark:bg-slate-800/55 backdrop-blur-sm p-3 rounded-xl border border-slate-100 dark:border-slate-700/40 shadow-sm">
+          <i class="fa fa-file text-indigo-500 w-4 text-center text-xs"></i>
+          <span class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">Administrasi Data</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/65 dark:bg-slate-800/55 backdrop-blur-sm p-3 rounded-xl border border-slate-100 dark:border-slate-700/40 shadow-sm">
+          <i class="fa fa-chart-line text-emerald-500 w-4 text-center text-xs"></i>
+          <span class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">Data Management</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/65 dark:bg-slate-800/55 backdrop-blur-sm p-3 rounded-xl border border-slate-100 dark:border-slate-700/40 shadow-sm">
+          <i class="fa fa-users text-blue-500 w-4 text-center text-xs"></i>
+          <span class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">Team Collaboration</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white/65 dark:bg-slate-800/55 backdrop-blur-sm p-3 rounded-xl border border-slate-100 dark:border-slate-700/40 shadow-sm">
+          <i class="fa fa-clock text-purple-500 w-4 text-center text-xs"></i>
+          <span class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm">Time Management</span>
+        </div>
+      </div>
 
+      <!-- BUTTONS -->
+      <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
+        <a href="#resume" class="px-5 sm:px-6 py-2.5 rounded-full bg-indigo-500 text-white text-sm font-medium shadow-md hover:bg-indigo-600 hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+          <i class="fa fa-briefcase"></i> Resume
+        </a>
+        <a href="#portfolio" class="px-5 sm:px-6 py-2.5 rounded-full border border-indigo-500 text-indigo-500 text-sm font-medium hover:bg-indigo-500 hover:text-white hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+          <i class="fa fa-image"></i> Portfolio
+        </a>
+      </div>
+    </div>
   </div>
 </section>
-<!-- ================= RESUME TIMELINE ================= -->
-<section id="resume" class="py-20 px-6">
-  <h3 class="text-3xl font-bold text-center mb-16 flex justify-center items-center gap-3">
+
+<!-- RESUME -->
+<section id="resume" class="py-20 px-4 sm:px-6 "
+data-aos="fade-up" >
+  
+  <!-- TITLE -->
+  <h3 class="text-2xl sm:text-3xl font-bold text-center mb-14 flex justify-center items-center gap-3"
+      data-aos="fade-down" data-aos-duration="800">
     <i class="fa fa-briefcase text-indigo-500"></i> Resume Journey
   </h3>
 
   <div class="max-w-3xl mx-auto relative">
 
-    <!-- LINE -->
-    <div class="absolute left-5 top-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-blue-500 to-emerald-400 rounded-full"></div>
+    <!-- TIMELINE LINE -->
+    <div class="timeline-line absolute left-5 top-0 w-0.5 h-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+      <div class="timeline-progress w-full h-0 bg-gradient-to-b from-indigo-500 via-blue-500 to-emerald-400 rounded-full"></div>
+    </div>
 
     <!-- ================= PENDIDIKAN ================= -->
-    <p class="ml-16 mb-6 text-indigo-500 font-semibold">🎓 Pendidikan</p>
+    <p class="ml-14 mb-4 text-indigo-500 font-semibold text-sm"
+       data-aos="fade-right" data-aos-delay="100">
+      🎓 Pendidikan
+    </p>
 
-    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg">
-        <i class="fa fa-graduation-cap text-white"></i>
+    <div class="relative pl-14 mb-12 group"
+         data-aos="fade-up" data-aos-delay="200">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center shadow-lg
+      group-hover:scale-110 transition duration-300">
+        <i class="fa fa-graduation-cap text-white text-sm"></i>
       </div>
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
-        <img src="./img/unper.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+      <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex gap-4
+      hover:shadow-xl hover:-translate-y-1 transition duration-300 delay-1">
+
+        <img src="./img/unper.png"
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-1 shadow object-contain flex-shrink-0">
 
         <div>
           <span class="text-xs text-slate-400">2021 – 2025</span>
-          <h4 class="text-lg font-semibold text-indigo-500">S1 Teknik Informatika</h4>
-          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+          <h4 class="text-base font-semibold text-indigo-500 mt-0.5">S1 Teknik Informatika</h4>
+          <p class="text-sm mt-1.5 text-slate-600 dark:text-slate-300">
             Fokus pada pengembangan web, sistem informasi, dan analisis sistem.
           </p>
         </div>
+
       </div>
     </div>
 
     <!-- ================= PELATIHAN ================= -->
-    <p class="ml-16 mb-6 text-blue-500 font-semibold">💻 Pelatihan</p>
+    <p class="ml-14 mb-4 text-blue-500 font-semibold text-sm"
+       data-aos="fade-right" data-aos-delay="100">
+      💻 Pelatihan
+    </p>
 
-    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-lg">
-        <i class="fa fa-laptop-code text-white"></i>
+    <div class="relative pl-14 mb-12 group"
+         data-aos="fade-up" data-aos-delay="300">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-lg
+      group-hover:scale-110 transition duration-300 delay-2">
+        <i class="fa fa-laptop-code text-white text-sm"></i>
       </div>
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
-        <img src="./img/MSIB.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+      <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex gap-4
+      hover:shadow-xl hover:-translate-y-1 transition duration-300">
+
+        <img src="./img/MSIB.png"
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-1 shadow object-contain flex-shrink-0">
 
         <div>
           <span class="text-xs text-slate-400">Des 2023 – Apr 2024</span>
-          <h4 class="text-lg font-semibold text-blue-500">MSIB Fullstack Developer</h4>
-          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+          <h4 class="text-base font-semibold text-blue-500 mt-0.5">MSIB Fullstack Developer</h4>
+          <p class="text-sm mt-1.5 text-slate-600 dark:text-slate-300">
             Pelatihan intensif pengembangan web menggunakan Laravel dan REST API.
           </p>
         </div>
+
       </div>
     </div>
 
     <!-- ================= MAGANG ================= -->
-    <p class="ml-16 mb-6 text-emerald-500 font-semibold">🏢 Magang</p>
+    <p class="ml-14 mb-4 text-emerald-500 font-semibold text-sm"
+       data-aos="fade-right" data-aos-delay="100">
+      🏢 Magang
+    </p>
 
-    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg">
-        <i class="fa fa-building text-white"></i>
+    <div class="relative pl-14 mb-12 group"
+         data-aos="fade-up" data-aos-delay="400">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg
+      group-hover:scale-110 transition duration-300">
+        <i class="fa fa-building text-white text-sm"></i>
       </div>
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
-        <img src="./img/diskominfo.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+      <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex gap-4
+      hover:shadow-xl hover:-translate-y-1 transition duration-300 delay-1">
+
+        <img src="./img/diskominfo.png"
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-1 shadow object-contain flex-shrink-0">
 
         <div>
           <span class="text-xs text-slate-400">Apr 2025 – Jun 2025</span>
-          <h4 class="text-lg font-semibold text-emerald-500">Web Developer Intern</h4>
-          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+          <h4 class="text-base font-semibold text-emerald-500 mt-0.5">Web Developer Intern</h4>
+          <p class="text-sm mt-1.5 text-slate-600 dark:text-slate-300">
             Mengembangkan UI React, integrasi API, serta sistem pemerintahan digital.
           </p>
         </div>
+
       </div>
     </div>
 
     <!-- ================= ORGANISASI ================= -->
-    <p class="ml-16 mb-6 text-purple-500 font-semibold">👥 Organisasi</p>
+    <p class="ml-14 mb-4 text-purple-500 font-semibold text-sm"
+       data-aos="fade-right" data-aos-delay="100">
+      👥 Organisasi
+    </p>
 
-    <div class="relative pl-16 mb-14 group" data-aos="fade-up">
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center shadow-lg">
-        <i class="fa fa-users text-white"></i>
+    <div class="relative pl-14 mb-12 group"
+         data-aos="fade-up" data-aos-delay="500">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center shadow-lg
+      group-hover:scale-110 transition duration-300">
+        <i class="fa fa-users text-white text-sm"></i>
       </div>
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
- <img src="./img/cc.png" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
+      <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex gap-4
+      hover:shadow-xl hover:-translate-y-1 transition duration-300">
+
+        <img src="./img/cc.png"
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-1 shadow object-contain flex-shrink-0">
+
         <div>
           <span class="text-xs text-slate-400">2022 – 2023</span>
-          <h4 class="text-lg font-semibold text-purple-500">Computer Club</h4>
-          <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
-            Aktif dalam kegiatan organisasi, koordinasi event, dan pengembangan soft skill komunikasi serta teamwork.
+          <h4 class="text-base font-semibold text-purple-500 mt-0.5">Computer Club</h4>
+          <p class="text-sm mt-1.5 text-slate-600 dark:text-slate-300">
+            Aktif dalam kegiatan organisasi dan teamwork.
           </p>
         </div>
+
       </div>
     </div>
 
     <!-- ================= VOLUNTEER ================= -->
-    <p class="ml-16 mb-6 text-pink-500 font-semibold">🤝 Volunteer</p>
+    <p class="ml-14 mb-4 text-pink-500 font-semibold text-sm"
+       data-aos="fade-right" data-aos-delay="100">
+      🤝 Volunteer
+    </p>
 
-    <div class="relative pl-16 group" data-aos="fade-up">
-      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center shadow-lg">
-        <i class="fa fa-hand-holding-heart text-white"></i>
+    <div class="relative pl-14 group"
+         data-aos="fade-up" data-aos-delay="600">
+
+      <div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center shadow-lg
+      group-hover:scale-110 transition duration-300">
+        <i class="fa fa-hand-holding-heart text-white text-sm"></i>
       </div>
 
-      <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md flex gap-4">
-<img src="./img/download.jpg" class="w-14 h-14 rounded-lg bg-white p-1 shadow">
-        <div>
-  <span class="text-xs text-slate-400">2023</span>
-  <h4 class="text-lg font-semibold text-pink-500">Volunteer Event Kampus</h4>
-  <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
-    Berperan dalam kegiatan pengenalan program <b>Kampus Merdeka (MBKM)</b> kepada mahasiswa, serta menjabat sebagai 
-    <b>Koordinator Lapangan</b> yang bertanggung jawab dalam mengatur jalannya acara.
-  </p>
+      <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex gap-4
+      hover:shadow-xl hover:-translate-y-1 transition duration-300">
 
-  <ul class="mt-2 text-sm text-slate-600 dark:text-slate-300 list-disc pl-5">
-    <li>Mengkoordinasikan tim volunteer selama kegiatan berlangsung</li>
-    <li>Mengelola alur peserta dan memastikan kelancaran acara</li>
-    <li>Menyampaikan informasi terkait program Kampus Merdeka kepada peserta</li>
-    <li>Berkomunikasi dengan panitia inti untuk memastikan operasional berjalan efektif</li>
-  </ul>
-</div>
+        <img src="./img/download.jpg"
+          class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white p-1 shadow object-contain flex-shrink-0">
+
+        <div>
+          <span class="text-xs text-slate-400">2023</span>
+          <h4 class="text-base font-semibold text-pink-500 mt-0.5">Volunteer Event Kampus</h4>
+          <p class="text-sm mt-1.5 text-slate-600 dark:text-slate-300">
+            Koordinator lapangan dalam event MBKM.
+          </p>
+        </div>
+
       </div>
     </div>
 
   </div>
 </section>
 
-<section id="skills" class="relative py-24 px-6 overflow-hidden
-bg-gradient-to-br from-indigo-100 via-white to-blue-100
-dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+<!-- SKILLS -->
+<section id="skills" class="relative py-24 px-4 sm:px-6 overflow-hidden
+bg-gradient-to-br from-indigo-50/50 via-white to-blue-50/50
+dark:from-slate-900 dark:via-slate-800/70 dark:to-slate-900">
 
-  <!-- BACKGROUND ICONS (SLIDE STYLE) -->
+  <!-- BACKGROUND DECOR -->
   <div class="absolute inset-0 pointer-events-none">
-
-    <!-- LEFT -->
-    <i class="fa-brands fa-laravel text-red-400 text-4xl absolute top-20 left-10 animate-slide-x opacity-30"></i>
-    <i class="fa-brands fa-js text-yellow-400 text-4xl absolute bottom-24 left-20 animate-slide-y opacity-30"></i>
-
-    <!-- RIGHT -->
-    <i class="fa-brands fa-react text-blue-400 text-4xl absolute top-32 right-16 animate-slide-y opacity-30"></i>
-    <i class="fa-brands fa-php text-indigo-400 text-4xl absolute bottom-20 right-10 animate-slide-x opacity-30"></i>
-
-    <!-- ADMIN -->
-    <i class="fa-solid fa-file-excel text-green-500 text-4xl absolute top-20 right-1/3 animate-slide-x opacity-30"></i>
-    <i class="fa-solid fa-file-word text-blue-500 text-4xl absolute bottom-28 left-1/3 animate-slide-y opacity-30"></i>
-
-    <!-- SOFT CENTER -->
-    <i class="fa-solid fa-database text-blue-300 text-4xl absolute top-1/2 left-[8%] animate-slide-x opacity-20"></i>
-
-    <!-- BLUR EFFECT -->
-    <div class="absolute w-80 h-80 bg-indigo-400 opacity-20 blur-3xl rounded-full top-0 left-1/3"></div>
-    <div class="absolute w-80 h-80 bg-blue-400 opacity-20 blur-3xl rounded-full bottom-0 right-1/3"></div>
-
+    <div class="absolute w-72 h-72 bg-indigo-400/10 blur-3xl rounded-full top-0 left-1/3"></div>
+    <div class="absolute w-72 h-72 bg-blue-400/10 blur-3xl rounded-full bottom-0 right-1/3"></div>
   </div>
 
-  <!-- CONTENT -->
   <div class="relative max-w-5xl mx-auto">
 
     <!-- TITLE -->
-    <h3 class="text-4xl font-bold text-center mb-20 tracking-tight">
+    <h3 class="text-3xl sm:text-4xl font-bold text-center mb-16 tracking-tight"
+        data-aos="fade-up">
       <span class="bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
         Skills & Expertise
       </span>
     </h3>
 
-    <!-- HARD SKILLS -->
+    <!-- ================= HARD SKILLS ================= -->
     <div class="mb-16">
-      <h4 class="text-lg font-semibold mb-8 text-indigo-500 flex items-center gap-2">
+
+      <h4 class="text-lg font-semibold mb-8 text-indigo-500 flex items-center gap-2"
+          data-aos="fade-up">
         <i class="fa fa-code"></i> Hard Skills
       </h4>
 
-      <!-- GRID 2 COL FIX -->
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid sm:grid-cols-2 gap-6">
 
-        <!-- CARD -->
-        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-500">
-          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+        <!-- CARD TEMPLATE -->
+        <!-- 1 -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-500"
+             data-aos="fade-up">
 
-            <div class="flex items-center gap-4 mb-3">
-              <div class="w-12 h-12 flex items-center justify-center rounded-xl
-              bg-indigo-100 dark:bg-indigo-500/20">
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
+
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-indigo-500/10 to-blue-500/10 blur-xl rounded-2xl"></div>
+
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-indigo-50 dark:bg-indigo-500/10
+              group-hover:scale-110 transition duration-300">
                 <i class="fa fa-globe text-indigo-500"></i>
               </div>
-              <h5 class="font-semibold text-lg">Web Development</h5>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                Web Development
+              </h5>
             </div>
 
-            <p class="text-sm text-slate-600 dark:text-slate-300">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
               Laravel • CodeIgniter • React • REST API
             </p>
 
           </div>
         </div>
 
-        <!-- CARD -->
-        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-green-400 to-emerald-500">
-          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+        <!-- 2 -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-emerald-400 to-green-500"
+             data-aos="fade-up" data-aos-delay="100">
 
-            <div class="flex items-center gap-4 mb-3">
-              <div class="w-12 h-12 flex items-center justify-center rounded-xl
-              bg-green-100 dark:bg-green-500/20">
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
+
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-emerald-400/10 to-green-500/10 blur-xl rounded-2xl"></div>
+
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-green-50 dark:bg-green-500/10
+              group-hover:scale-110 transition duration-300">
                 <i class="fa fa-mobile-alt text-green-500"></i>
               </div>
-              <h5 class="font-semibold text-lg">Android Development</h5>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                Android Development
+              </h5>
             </div>
 
-            <p class="text-sm text-slate-600 dark:text-slate-300">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
               Kotlin • Mobile UI
             </p>
 
           </div>
         </div>
 
-        <!-- CARD -->
-        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-500">
-          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+        <!-- 3 -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-500"
+             data-aos="fade-up" data-aos-delay="200">
 
-            <div class="flex items-center gap-4 mb-3">
-              <div class="w-12 h-12 flex items-center justify-center rounded-xl
-              bg-blue-100 dark:bg-blue-500/20">
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
+
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-blue-400/10 to-cyan-500/10 blur-xl rounded-2xl"></div>
+
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-blue-50 dark:bg-blue-500/10
+              group-hover:scale-110 transition duration-300">
                 <i class="fa fa-database text-blue-500"></i>
               </div>
-              <h5 class="font-semibold text-lg">System Analysis</h5>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                System Analysis
+              </h5>
             </div>
 
-            <p class="text-sm text-slate-600 dark:text-slate-300">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
               SPBE • API Testing • Documentation
             </p>
 
           </div>
         </div>
 
-        <!-- CARD -->
-        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-purple-400 to-pink-500">
-          <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl">
+        <!-- 4 -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-purple-400 to-pink-500"
+             data-aos="fade-up" data-aos-delay="300">
 
-            <div class="flex items-center gap-4 mb-3">
-              <div class="w-12 h-12 flex items-center justify-center rounded-xl
-              bg-purple-100 dark:bg-purple-500/20">
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
+
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-purple-400/10 to-pink-500/10 blur-xl rounded-2xl"></div>
+
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-purple-50 dark:bg-purple-500/10
+              group-hover:scale-110 transition duration-300">
                 <i class="fa fa-file-alt text-purple-500"></i>
               </div>
-              <h5 class="font-semibold text-lg">Administrasi</h5>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                Administrasi
+              </h5>
             </div>
 
-            <p class="text-sm text-slate-600 dark:text-slate-300">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
               Word • Excel • Access • PowerPoint
             </p>
 
@@ -699,428 +881,275 @@ dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       </div>
     </div>
 
-    <!-- ================= SOFT SKILLS MODERN ================= -->
-<div>
-  <h4 class="text-lg font-semibold mb-10 text-indigo-500 flex items-center gap-2">
-    <i class="fa fa-users"></i> Soft Skills
-  </h4>
+    <!-- ================= SOFT SKILLS ================= -->
+    <div>
 
-  <div class="grid md:grid-cols-2 gap-8">
+      <h4 class="text-lg font-semibold mb-8 text-indigo-500 flex items-center gap-2"
+          data-aos="fade-up">
+        <i class="fa fa-users"></i> Soft Skills
+      </h4>
 
-    <!-- TEAMWORK -->
-    <div class="group relative rounded-2xl overflow-hidden">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- GLOW -->
-      <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-400
-      opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-pink-400 to-rose-400"
+             data-aos="fade-up">
 
-      <div class="relative p-6 rounded-2xl
-      bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl
-      border border-white/20 dark:border-slate-700
-      shadow-md group-hover:shadow-2xl
-      transition duration-500
-      group-hover:-translate-y-2">
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
 
-        <div class="flex items-center gap-4 mb-4">
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-pink-400/10 to-rose-400/10 blur-xl rounded-2xl"></div>
 
-          <!-- ICON -->
-          <div class="relative">
-            <div class="absolute inset-0 bg-pink-400 blur-md opacity-30 rounded-xl"></div>
-            <div class="relative w-12 h-12 flex items-center justify-center rounded-xl
-            bg-pink-100 dark:bg-pink-500/20">
-              <i class="fa fa-users text-pink-500"></i>
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-pink-50 dark:bg-pink-500/10
+              group-hover:scale-110 transition duration-300">
+                <i class="fa fa-users text-pink-500"></i>
+              </div>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                Teamwork
+              </h5>
             </div>
-          </div>
 
-          <h5 class="font-semibold text-lg">Teamwork</h5>
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              Kolaborasi efektif dalam tim
+            </p>
+
+          </div>
         </div>
 
-        <p class="text-sm text-slate-600 dark:text-slate-300">
-          Kolaborasi efektif dalam tim
-        </p>
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-400"
+             data-aos="fade-up" data-aos-delay="100">
 
-        <!-- LINE -->
-        <div class="mt-4 h-[2px] w-0 bg-gradient-to-r from-pink-400 to-rose-400
-        group-hover:w-full transition-all duration-500"></div>
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
+
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-yellow-400/10 to-orange-400/10 blur-xl rounded-2xl"></div>
+
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-yellow-50 dark:bg-yellow-500/10
+              group-hover:scale-110 transition duration-300">
+                <i class="fa fa-lightbulb text-yellow-500"></i>
+              </div>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                Problem Solving
+              </h5>
+            </div>
+
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              Analisis & solusi efektif
+            </p>
+
+          </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="group relative p-[1px] rounded-2xl bg-gradient-to-r from-cyan-400 to-blue-400"
+             data-aos="fade-up" data-aos-delay="200">
+
+          <div class="relative p-5 rounded-2xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl
+          border border-white/30 dark:border-slate-700/40
+          shadow-md transition duration-300
+          group-hover:shadow-xl group-hover:-translate-y-2">
+
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+            bg-gradient-to-r from-cyan-400/10 to-blue-400/10 blur-xl rounded-2xl"></div>
+
+            <div class="relative flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 flex items-center justify-center rounded-xl
+              bg-cyan-50 dark:bg-cyan-500/10
+              group-hover:scale-110 transition duration-300">
+                <i class="fa fa-clock text-cyan-500"></i>
+              </div>
+
+              <h5 class="font-semibold text-slate-800 dark:text-white">
+                Time Management
+              </h5>
+            </div>
+
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+              Efisiensi waktu kerja
+            </p>
+
+          </div>
+        </div>
 
       </div>
     </div>
-
-    <!-- PROBLEM SOLVING -->
-    <div class="group relative rounded-2xl overflow-hidden">
-
-      <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400
-      opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
-
-      <div class="relative p-6 rounded-2xl
-      bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl
-      border border-white/20 dark:border-slate-700
-      shadow-md group-hover:shadow-2xl
-      transition duration-500
-      group-hover:-translate-y-2">
-
-        <div class="flex items-center gap-4 mb-4">
-
-          <div class="relative">
-            <div class="absolute inset-0 bg-yellow-400 blur-md opacity-30 rounded-xl"></div>
-            <div class="relative w-12 h-12 flex items-center justify-center rounded-xl
-            bg-yellow-100 dark:bg-yellow-500/20">
-              <i class="fa fa-lightbulb text-yellow-500"></i>
-            </div>
-          </div>
-
-          <h5 class="font-semibold text-lg">Problem Solving</h5>
-        </div>
-
-        <p class="text-sm text-slate-600 dark:text-slate-300">
-          Analisis & solusi efektif
-        </p>
-
-        <div class="mt-4 h-[2px] w-0 bg-gradient-to-r from-yellow-400 to-orange-400
-        group-hover:w-full transition-all duration-500"></div>
-
-      </div>
-    </div>
-
-    <!-- TIME MANAGEMENT -->
-    <div class="group relative rounded-2xl overflow-hidden">
-
-      <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400
-      opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
-
-      <div class="relative p-6 rounded-2xl
-      bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl
-      border border-white/20 dark:border-slate-700
-      shadow-md group-hover:shadow-2xl
-      transition duration-500
-      group-hover:-translate-y-2">
-
-        <div class="flex items-center gap-4 mb-4">
-
-          <div class="relative">
-         
-            <div class="relative w-12 h-12 flex items-center justify-center rounded-xl
-            bg-cyan-100 dark:bg-cyan-500/20">
-              <i class="fa fa-clock text-cyan-500"></i>
-            </div>
-          </div>
-
-          <h5 class="font-semibold text-lg">Time Management</h5>
-        </div>
-
-        <p class="text-sm text-slate-600 dark:text-slate-300">
-          Efisiensi waktu kerja
-        </p>
-
-        <div class="mt-4 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-400
-        group-hover:w-full transition-all duration-500"></div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
 
   </div>
 </section>
-
-<!-- ================= PORTFOLIO ================= -->
-<section id="portfolio" class="py-20 px-6"> 
-  <h3 class="text-2xl font-bold text-center mb-12 flex justify-center gap-2">
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-20 px-4 sm:px-6">
+  <h3 class="text-2xl sm:text-3xl font-bold text-center mb-12 flex justify-center gap-2 items-center" data-aos="fade-up">
     <i class="fa fa-image text-indigo-500"></i> Portfolio
   </h3>
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-
-    <!-- PROJECT 1 -->
-    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full">
-      <img src="./img/porto1.png" class="h-52 w-full object-cover">
-      <div class="p-5 flex flex-col flex-1">
-        <h4 class="text-indigo-500 font-semibold">Website Biografi</h4>
-        <p class="text-sm flex-1">
-          Website statis yang menampilkan profil dan perjalanan karier dengan desain responsif dan interaktif.
-        </p>
-        <span class="mt-3 text-xs text-indigo-500">HTML • CSS • JavaScript</span>
-      </div>
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 gap-6">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex flex-col overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+      <img src="./img/porto1.png" class="h-48 sm:h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1"><h4 class="text-indigo-500 font-semibold mb-1">Website Biografi</h4><p class="text-sm text-slate-600 dark:text-slate-300 flex-1">Website statis menampilkan profil dan perjalanan karier dengan desain responsif dan interaktif.</p><span class="mt-3 text-xs text-indigo-400 font-medium">HTML · CSS · JavaScript</span></div>
     </div>
-
-    <!-- PROJECT 2 -->
-   <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full"> 
-  <img src="./img/neuralitika.png" class="h-52 w-full object-cover">
-  <div class="p-5 flex flex-col flex-1">
-    <h4 class="text-indigo-500 font-semibold">Neuralitika LMS</h4>
-    <p class="text-sm flex-1">
-      Berperan sebagai <b>Frontend Developer</b> dalam project tim untuk membangun platform pembelajaran Data & AI. 
-      Mengembangkan tampilan interaktif seperti dashboard, roadmap, dan UI modular menggunakan React & Tailwind, 
-      serta berkolaborasi dengan tim backend untuk integrasi API.
-    </p>
-    <span class="mt-3 text-xs text-indigo-500">React • Tailwind </span>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex flex-col overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="50">
+      <img src="./img/neuralitika.png" class="h-48 sm:h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1"><h4 class="text-indigo-500 font-semibold mb-1">Neuralitika LMS</h4><p class="text-sm text-slate-600 dark:text-slate-300 flex-1">Berperan sebagai <b>Frontend Developer</b> membangun platform pembelajaran Data & AI — dashboard, roadmap, dan UI modular.</p><span class="mt-3 text-xs text-indigo-400 font-medium">React · Tailwind</span></div>
+    </div>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex flex-col overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+      <img src="./img/Frame 2.png" class="h-48 sm:h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1"><h4 class="text-indigo-500 font-semibold mb-1">Website Pendaftaran Beasiswa</h4><p class="text-sm text-slate-600 dark:text-slate-300 flex-1">Aplikasi web untuk mengelola pendaftaran dan seleksi beasiswa dengan fitur CRUD dan autentikasi.</p><span class="mt-3 text-xs text-indigo-400 font-medium">PHP · MySQL</span></div>
+    </div>
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/40 flex flex-col overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+      <img src="./img/sistem rekomendasi sepeda listrik.png" class="h-48 sm:h-52 w-full object-cover">
+      <div class="p-5 flex flex-col flex-1"><h4 class="text-indigo-500 font-semibold mb-1">Sistem Rekomendasi Sepeda Listrik</h4><p class="text-sm text-slate-600 dark:text-slate-300 flex-1">Sistem pendukung keputusan berbasis perhitungan dan preferensi pengguna untuk rekomendasi sepeda listrik.</p><span class="mt-3 text-xs text-indigo-400 font-medium">Laravel · MySQL</span></div>
+    </div>
   </div>
-</div>
-
-    <!-- PROJECT 3 -->
-    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full">
-      <img src="./img/Frame 2.png" class="h-52 w-full object-cover">
-      <div class="p-5 flex flex-col flex-1">
-        <h4 class="text-indigo-500 font-semibold">Website Pendaftaran Beasiswa</h4>
-        <p class="text-sm flex-1">
-          Aplikasi web untuk mengelola pendaftaran dan seleksi beasiswa dengan fitur CRUD dan autentikasi.
-        </p>
-        <span class="mt-3 text-xs text-indigo-500">PHP • MySQL</span>
-      </div>
-    </div>
-
-    <!-- PROJECT 4 -->
-    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow flex flex-col overflow-hidden h-full">
-      <img src="./img/sistem rekomendasi sepeda listrik.png" class="h-52 w-full object-cover">
-      <div class="p-5 flex flex-col flex-1">
-        <h4 class="text-indigo-500 font-semibold">Sistem Rekomendasi Sepeda Listrik</h4>
-        <p class="text-sm flex-1">
-          Sistem pendukung keputusan untuk memberikan rekomendasi sepeda listrik berbasis perhitungan dan preferensi pengguna.
-        </p>
-        <span class="mt-3 text-xs text-indigo-500">Laravel • MySQL</span>
-      </div>
-    </div>
-
-  </div>
-  
 </section>
-
-<!-- ================= CONTACT / FOOTER ================= -->
-<section id="contact"
-class="py-16
-bg-gradient-to-br from-slate-100 via-white to-slate-200
-dark:from-slate-900 dark:via-slate-900 dark:to-slate-800
-transition-colors duration-500 overflow-hidden">
-
-<div class="max-w-6xl mx-auto px-6">
-
-<div class="grid md:grid-cols-3 gap-10">
-
-<!-- BRAND -->
-<div data-aos="fade-right">
-
-<h3 class="text-2xl font-bold flex items-center gap-2 mb-4
-bg-gradient-to-r from-indigo-500 to-blue-500
-bg-clip-text text-transparent">
-
-<i class="fa-solid fa-code"></i> Rifki Syarip
-
-</h3>
-
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-
-Web Developer & System Analyst yang berfokus pada pengembangan
-aplikasi web modern menggunakan Laravel, React, dan REST API.
-
-</p>
-
-<div class="flex gap-4 mt-5">
-
-<!-- Github -->
-<a href="https://github.com/rifkisyaripatuloh"
-target="_blank"
-class="w-10 h-10 flex items-center justify-center rounded-lg
-bg-slate-200 hover:bg-indigo-500
-dark:bg-white/10 dark:hover:bg-indigo-500
-transition duration-300 shadow">
-
-<i class="fab fa-github text-slate-700 dark:text-white"></i>
-
-</a>
-
-<!-- LinkedIn -->
-<a href="https://www.linkedin.com/in/rifki-syarip/"
-target="_blank"
-class="w-10 h-10 flex items-center justify-center rounded-lg
-bg-slate-200 hover:bg-blue-500
-dark:bg-white/10 dark:hover:bg-blue-500
-transition duration-300 shadow">
-
-<i class="fab fa-linkedin-in text-slate-700 dark:text-white"></i>
-
-</a>
-
-<!-- Gmail -->
-<a href="mailto:rifkisyarif6@gmail.com"
-class="w-10 h-10 flex items-center justify-center rounded-lg
-bg-slate-200 hover:bg-red-500
-dark:bg-white/10 dark:hover:bg-red-500
-transition duration-300 shadow">
-
-<i class="fa fa-envelope text-slate-700 dark:text-white"></i>
-
-</a>
-
-</div>
-
-</div>
-
-<!-- NAVIGATION -->
-<div data-aos="fade-up">
-
-<h4 class="text-lg font-semibold mb-4
-text-indigo-600 dark:text-indigo-400">
-
-Navigation
-
-</h4>
-
-<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-
-<li>
-<a href="#about"
-class="hover:text-indigo-500 dark:hover:text-white
-transition flex items-center gap-2">
-
-<i class="fa fa-user text-xs text-slate-500 dark:text-indigo-500"></i> 
-About
-
-</a>
-</li>
-
-<li>
-<a href="#resume"
-class="hover:text-indigo-500 dark:hover:text-white
-transition flex items-center gap-2">
-
-<i class="fa fa-briefcase text-xs text-slate-500 dark:text-indigo-500"></i> 
-Resume
-
-</a>
-</li>
-
-<li>
-<a href="#skills"
-class="hover:text-indigo-500 dark:hover:text-white
-transition flex items-center gap-2">
-
-<i class="fa fa-star text-xs text-slate-500 dark:text-indigo-500"></i> 
-Skills
-
-</a>
-</li>
-
-<li>
-<a href="#portfolio"
-class="hover:text-indigo-500 dark:hover:text-white
-transition flex items-center gap-2">
-
-<i class="fa fa-image text-xs text-slate-500 dark:text-indigo-500"></i> 
-Portfolio
-
-</a>
-</li>
-
-</ul>
-
-</div>
-
 
 <!-- CONTACT -->
-<div data-aos="fade-left">
-
-<h4 class="text-lg font-semibold mb-4
-text-indigo-600 dark:text-indigo-400">
-
-Contact
-
-</h4>
-
-<div class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-
-<a href="mailto:rifkisyarif6@gmail.com"
-class="flex items-center gap-3
-hover:text-indigo-500 dark:hover:text-white
-transition">
-
-<i class="fa fa-envelope text-xs text-slate-500 dark:text-indigo-500"></i>
-<span>rifkisyarif6@gmail.com</span>
-
-</a>
-
-<div class="flex items-center gap-3">
-
-<i class="fa fa-phone text-xs text-slate-500 dark:text-indigo-500"></i>
-+62 882 1449 5021
-
-</div>
-
-<div class="flex items-center gap-3">
-
-<i class="fa fa-location-dot text-xs text-slate-500 dark:text-indigo-500"></i>
-Tasikmalaya, Indonesia
-
-</div>
-
-</div>
-
-</div>
-
-<!-- FOOTER BOTTOM -->
-<div class="mt-12 pt-5 border-t
-border-slate-300 dark:border-slate-700
-flex flex-col md:flex-row
-justify-between items-center
-text-sm text-slate-500 dark:text-slate-400">
-
-<p>
-
-© 2026 <span class="text-indigo-500">Rifki Syarip</span>.
-All rights reserved.
-
-</p>
-
-</div>
-
-</div>
-
+<section id="contact" class="py-16 px-4 sm:px-6
+  bg-gradient-to-br from-slate-100/70 via-white to-slate-100/70
+  dark:from-slate-900 dark:via-slate-900 dark:to-slate-800
+  border-t border-slate-200/50 dark:border-slate-700/30">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <div data-aos="fade-right">
+        <h3 class="text-xl font-bold flex items-center gap-2 mb-4 bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">
+          <i class="fa-solid fa-code text-indigo-500"></i> Rifki Syarip
+        </h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Web Developer & System Analyst berfokus pada pengembangan aplikasi web modern menggunakan Laravel, React, dan REST API.</p>
+        <div class="flex gap-3 mt-5">
+          <a href="https://github.com/rifkisyaripatuloh" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-indigo-500 dark:hover:bg-indigo-500 text-slate-500 dark:text-slate-400 hover:text-white transition-all duration-200 shadow-sm"><i class="fab fa-github text-sm"></i></a>
+          <a href="https://www.linkedin.com/in/rifki-syarip/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 dark:hover:bg-blue-500 text-slate-500 dark:text-slate-400 hover:text-white transition-all duration-200 shadow-sm"><i class="fab fa-linkedin-in text-sm"></i></a>
+          <a href="mailto:rifkisyarif6@gmail.com" class="w-9 h-9 flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-red-500 dark:hover:bg-red-500 text-slate-500 dark:text-slate-400 hover:text-white transition-all duration-200 shadow-sm"><i class="fa fa-envelope text-sm"></i></a>
+        </div>
+      </div>
+      <div data-aos="fade-up">
+        <h4 class="text-base font-semibold mb-4 text-indigo-500 dark:text-indigo-400">Navigation</h4>
+        <ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+          <li><a href="#about"     class="flex items-center gap-2 py-0.5 hover:text-indigo-500 transition"><i class="fa fa-user w-4 text-center text-indigo-400 text-xs"></i>About</a></li>
+          <li><a href="#resume"    class="flex items-center gap-2 py-0.5 hover:text-indigo-500 transition"><i class="fa fa-briefcase w-4 text-center text-indigo-400 text-xs"></i>Resume</a></li>
+          <li><a href="#skills"    class="flex items-center gap-2 py-0.5 hover:text-indigo-500 transition"><i class="fa fa-star w-4 text-center text-indigo-400 text-xs"></i>Skills</a></li>
+          <li><a href="#portfolio" class="flex items-center gap-2 py-0.5 hover:text-indigo-500 transition"><i class="fa fa-image w-4 text-center text-indigo-400 text-xs"></i>Portfolio</a></li>
+        </ul>
+      </div>
+      <div data-aos="fade-left">
+        <h4 class="text-base font-semibold mb-4 text-indigo-500 dark:text-indigo-400">Contact</h4>
+        <div class="space-y-3 text-sm text-slate-500 dark:text-slate-400">
+          <a href="mailto:rifkisyarif6@gmail.com" class="flex items-center gap-3 hover:text-indigo-500 transition"><i class="fa fa-envelope w-4 text-center text-indigo-400 text-xs"></i>rifkisyarif6@gmail.com</a>
+          <div class="flex items-center gap-3"><i class="fa fa-phone w-4 text-center text-indigo-400 text-xs"></i>+62 882 1449 5021</div>
+          <div class="flex items-center gap-3"><i class="fa fa-location-dot w-4 text-center text-indigo-400 text-xs"></i>Tasikmalaya, Indonesia</div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 pt-5 border-t border-slate-200 dark:border-slate-700/40 text-center text-sm text-slate-400">
+      © 2026 <span class="text-indigo-500 font-medium">Rifki Syarip</span>. All rights reserved.
+    </div>
+  </div>
 </section>
-<!-- SCRIPT -->
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init();
-const toggle = document.getElementById("toggleDark");
-const dot = document.getElementById("dot");
-const iconSun = document.getElementById("iconSun");
-const iconMoon = document.getElementById("iconMoon");
+AOS.init({ once: true, duration: 580, offset: 55 });
 
-
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuBtn.addEventListener("click", () => {
-mobileMenu.classList.toggle("hidden");
+/* DARK MODE */
+const toggle = document.getElementById('toggleDark');
+const dot = document.getElementById('dot');
+const iconSun = document.getElementById('iconSun');
+const iconMoon = document.getElementById('iconMoon');
+function applyDark(d) {
+  document.documentElement.classList.toggle('dark', d);
+  toggle.checked = d;
+  dot.style.left = d ? '28px' : '4px';
+  iconSun.classList.toggle('hidden', d);
+  iconMoon.classList.toggle('hidden', !d);
+}
+applyDark(localStorage.getItem('theme') === 'dark');
+toggle.addEventListener('change', () => {
+  localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
+  applyDark(toggle.checked);
 });
 
+/* MOBILE MENU */
+document.getElementById('menu-btn').addEventListener('click', () =>
+  document.getElementById('mobile-menu').classList.toggle('hidden'));
+document.querySelectorAll('#mobile-menu a').forEach(a =>
+  a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
 
-if (localStorage.getItem("theme") === "dark") {
-  document.documentElement.classList.add("dark");
-  toggle.checked = true;
-  dot.classList.add("left-8");
-  dot.classList.remove("left-1");
-  iconSun.classList.add("hidden");
-  iconMoon.classList.remove("hidden");
-}
+/* BARCODE */
+(function() {
+  const bc = document.getElementById('barcodeEl');
+  if (!bc) return;
+  [3,1,2,1,4,1,2,3,1,2,1,3,2,1,3,1,2,4,1,3,1,2,1,3,4,1,2,3].forEach(w => {
+    const b = document.createElement('div');
+    b.style.cssText = 'width:'+w+'px;flex:none;margin-right:1px;background:rgba(255,255,255,0.58);border-radius:1px;';
+    bc.appendChild(b);
+  });
+})();
 
-toggle.addEventListener("change", () => {
-  if (toggle.checked) {
-    document.documentElement.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-    dot.classList.add("left-8");
-    dot.classList.remove("left-1");
-    iconSun.classList.add("hidden");
-    iconMoon.classList.remove("hidden");
-  } else {
-    document.documentElement.classList.remove("dark");
-    localStorage.setItem("theme", "light");
-    dot.classList.remove("left-8");
-    dot.classList.add("left-1");
-    iconSun.classList.remove("hidden");
-    iconMoon.classList.add("hidden");
-  }
+/* 3D TILT */
+(function() {
+  const card   = document.getElementById('idCard');
+  const sheen  = document.getElementById('cardSheen');
+  const shadow = document.getElementById('groundShadow');
+  if (!card) return;
+  const scene = card.parentElement.parentElement;
+  let tx=-5, ty=0, cx=-5, cy=0, hv=false, ti=0;
+  scene.addEventListener('mouseenter', () => hv = true);
+  scene.addEventListener('mouseleave', () => { hv=false; tx=-5; ty=0; });
+  scene.addEventListener('mousemove', e => {
+    if (!hv) return;
+    const r = card.getBoundingClientRect();
+    tx = -5 + ((e.clientY - r.top  - r.height/2) / (r.height/2)) * -13;
+    ty =      ((e.clientX - r.left - r.width /2) / (r.width /2)) *  13;
+  });
+  (function loop() {
+    if (!hv) { ti += 0.011; tx = -5 + Math.sin(ti*0.55)*2.2; ty = Math.sin(ti)*2.8; }
+    cx += (tx-cx)*0.08; cy += (ty-cy)*0.08;
+    card.style.transform = `perspective(1000px) translateY(${hv?-10:0}px) rotateX(${cx}deg) rotateY(${cy}deg)`;
+    if (sheen) {
+      const sx = 50 + cy*2.5, sy = 50 - cx*2;
+      sheen.style.background = `radial-gradient(ellipse at ${sx}% ${sy}%,rgba(255,255,255,0.08) 0%,transparent 65%)`;
+    }
+    if (shadow) {
+      shadow.style.opacity   = hv ? '0.28' : '0.16';
+      shadow.style.transform = `translateX(-50%) scaleX(${hv?1.3:1})`;
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
+
+
+</script>
+<script>
+window.addEventListener("scroll", () => {
+  const progress = document.querySelector(".timeline-progress");
+  const section = document.querySelector("#resume");
+
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  let percentage = (windowHeight - rect.top) / (rect.height + windowHeight);
+  percentage = Math.max(0, Math.min(1, percentage));
+
+  progress.style.height = percentage * 100 + "%";
 });
 </script>
 
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    easing: 'ease-in-out',
+  });
+</script>
 </body>
 </html>
