@@ -343,132 +343,602 @@
 .delay-5 { transition-delay: 0.5s; }
   </style>
 
-  <div class="id-scene">
+  <!-- WRAPPER -->
+<!-- ===================== WRAPPER ===================== -->
+<!-- ===================== RESPONSIVE ID CARD SCENE ===================== -->
+<div class="w-full min-h-screen flex items-center justify-center px-2 sm:px-4 py-6 overflow-hidden">
 
-    <!-- LANYARD -->
-    <svg class="lanyard-svg" viewBox="0 0 296 252" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- SCENE -->
+  <div
+    class="
+      relative
+      flex flex-col items-center
+      w-full
+
+      max-w-[180px]
+      xs:max-w-[220px]
+      sm:max-w-[280px]
+      md:max-w-[320px]
+      lg:max-w-[360px]
+      xl:max-w-[400px]
+
+      transition-all duration-500
+    "
+  >
+
+    <!-- ===================== LANYARD ===================== -->
+    <svg
+      class="
+        relative z-0
+
+        w-full
+        max-w-[170px]
+        xs:max-w-[210px]
+        sm:max-w-[250px]
+        md:max-w-[285px]
+        lg:max-w-[305px]
+
+        h-auto
+        object-contain
+
+        drop-shadow-[0_15px_25px_rgba(0,0,0,0.45)]
+
+        transition-all duration-500
+      "
+      viewBox="0 0 296 252"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <!-- DEFINITIONS -->
       <defs>
         <pattern id="sp1" patternUnits="userSpaceOnUse" width="8" height="8">
           <rect width="8" height="8" fill="#2c3e52"/>
           <line x1="0" y1="4" x2="8" y2="4" stroke="#1d2d3d" stroke-width="1.2"/>
         </pattern>
+
         <pattern id="sp2" patternUnits="userSpaceOnUse" width="8" height="8">
           <rect width="8" height="8" fill="#253444"/>
           <line x1="0" y1="4" x2="8" y2="4" stroke="#1b2b3a" stroke-width="1.2"/>
         </pattern>
+
         <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%"   stop-color="rgba(255,255,255,0)"/>
-          <stop offset="45%"  stop-color="rgba(255,255,255,0.12)"/>
+          <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+          <stop offset="45%" stop-color="rgba(255,255,255,0.12)"/>
           <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
         </linearGradient>
+
         <linearGradient id="cMetal" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%"   stop-color="#b6bcc3"/>
-          <stop offset="40%"  stop-color="#e8eaec"/>
+          <stop offset="0%" stop-color="#b6bcc3"/>
+          <stop offset="40%" stop-color="#e8eaec"/>
           <stop offset="100%" stop-color="#98a0a8"/>
         </linearGradient>
+
         <linearGradient id="cBody" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stop-color="#d2d6da"/>
-          <stop offset="45%"  stop-color="#f0f3f5"/>
+          <stop offset="0%" stop-color="#d2d6da"/>
+          <stop offset="45%" stop-color="#f0f3f5"/>
           <stop offset="100%" stop-color="#98a0a8"/>
         </linearGradient>
       </defs>
-      <!-- Tali kiri -->
-      <path d="M87 0 C83 54 61 93 67 146 C72 178 101 198 148 203" stroke="url(#sp1)" stroke-width="21" stroke-linecap="round" fill="none"/>
-      <path d="M87 0 C83 54 61 93 67 146 C72 178 101 198 148 203" stroke="url(#sheen)" stroke-width="21" stroke-linecap="round" fill="none"/>
-      <path id="lp" d="M87 5 C83 57 62 96 68 148 C73 180 103 200 148 205" fill="none"/>
-      <text font-size="6" fill="rgba(255,255,255,0.22)" font-family="Poppins,system-ui" font-weight="700" letter-spacing="3.5">
-        <textPath href="#lp" startOffset="3%">RIFKI DEV · RIFKI DEV · RIFKI DEV ·</textPath>
-      </text>
-      <!-- Tali kanan -->
-      <path d="M209 0 C213 54 235 93 229 146 C224 178 195 198 148 203" stroke="url(#sp2)" stroke-width="21" stroke-linecap="round" fill="none"/>
-      <path d="M209 0 C213 54 235 93 229 146 C224 178 195 198 148 203" stroke="url(#sheen)" stroke-width="21" stroke-linecap="round" fill="none"/>
-      <path id="rp" d="M209 5 C213 57 234 96 228 148 C223 180 193 200 148 205" fill="none"/>
-      <text font-size="6" fill="rgba(255,255,255,0.22)" font-family="Poppins,system-ui" font-weight="700" letter-spacing="3.5">
-        <textPath href="#rp" startOffset="3%">RIFKI DEV · RIFKI DEV · RIFKI DEV ·</textPath>
-      </text>
-      <!-- Klip logam -->
-      <ellipse cx="148" cy="203" rx="18" ry="7.5" fill="#1b2736" stroke="#384d60" stroke-width="1.2"/>
-      <rect x="140" y="203" width="16" height="6" rx="2.5" fill="#222f40" stroke="#3b4e62" stroke-width="0.8"/>
-      <rect x="142" y="209" width="12" height="30" rx="3.5" fill="url(#cBody)" stroke="#889099" stroke-width="0.8"/>
-      <rect x="144" y="212" width="8" height="24" rx="2.5" fill="url(#cMetal)" stroke="#b5bcc3" stroke-width="0.5"/>
-      <rect x="145" y="213" width="3" height="22" rx="1.8" fill="rgba(255,255,255,0.42)"/>
-      <circle cx="148" cy="227" r="3.8" fill="#98a0a8" stroke="#bec4ca" stroke-width="0.6"/>
-      <circle cx="148" cy="227" r="1.6" fill="#dde0e3"/>
-      <path d="M144 239 Q148 248 152 239" stroke="#889099" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-      <path d="M142 241 Q148 251 154 241" stroke="#889099" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+
+      <!-- LEFT -->
+      <path
+        d="M87 0 C83 54 61 93 67 146 C72 178 101 198 148 203"
+        stroke="url(#sp1)"
+        stroke-width="21"
+        stroke-linecap="round"
+        fill="none"
+      />
+
+      <path
+        d="M87 0 C83 54 61 93 67 146 C72 178 101 198 148 203"
+        stroke="url(#sheen)"
+        stroke-width="21"
+        stroke-linecap="round"
+        fill="none"
+      />
+
+      <!-- RIGHT -->
+      <path
+        d="M209 0 C213 54 235 93 229 146 C224 178 195 198 148 203"
+        stroke="url(#sp2)"
+        stroke-width="21"
+        stroke-linecap="round"
+        fill="none"
+      />
+
+      <path
+        d="M209 0 C213 54 235 93 229 146 C224 178 195 198 148 203"
+        stroke="url(#sheen)"
+        stroke-width="21"
+        stroke-linecap="round"
+        fill="none"
+      />
+
+      <!-- METAL -->
+      <ellipse
+        cx="148"
+        cy="203"
+        rx="18"
+        ry="7.5"
+        fill="#1b2736"
+        stroke="#384d60"
+        stroke-width="1.2"
+      />
+
+      <rect
+        x="140"
+        y="203"
+        width="16"
+        height="6"
+        rx="2.5"
+        fill="#222f40"
+        stroke="#3b4e62"
+        stroke-width="0.8"
+      />
+
+      <rect
+        x="142"
+        y="209"
+        width="12"
+        height="30"
+        rx="3.5"
+        fill="url(#cBody)"
+        stroke="#889099"
+        stroke-width="0.8"
+      />
+
+      <rect
+        x="144"
+        y="212"
+        width="8"
+        height="24"
+        rx="2.5"
+        fill="url(#cMetal)"
+        stroke="#b5bcc3"
+        stroke-width="0.5"
+      />
+
+      <circle
+        cx="148"
+        cy="227"
+        r="3.8"
+        fill="#98a0a8"
+        stroke="#bec4ca"
+        stroke-width="0.6"
+      />
+
     </svg>
 
-    <!-- ID CARD -->
-    <div id="idCard">
+    <!-- ===================== CARD ===================== -->
+    <div
+      id="idCard"
+      class="
+        relative z-10
+
+        -mt-2
+        sm:-mt-3
+        md:-mt-4
+
+        w-full
+
+        aspect-[2/3]
+
+        rounded-[20px]
+        sm:rounded-[24px]
+        md:rounded-[30px]
+
+        overflow-hidden
+
+        border border-white/10
+        bg-[#18243a]
+
+        shadow-[0_20px_50px_rgba(0,0,0,0.45)]
+
+        backdrop-blur-xl
+
+        transition-all duration-500
+
+        hover:-translate-y-1
+        md:hover:-translate-y-2
+        hover:rotate-[1deg]
+      "
+    >
 
       <!-- BG -->
-      <div style="position:absolute;inset:0;background:#18243a;"></div>
-      <!-- Blob teal -->
-      <div style="position:absolute;bottom:-22px;right:-28px;width:182px;height:202px;background:#13a87a;border-radius:52% 62% 42% 70%;opacity:0.92;"></div>
-      <div style="position:absolute;bottom:50px;right:20px;width:106px;height:124px;background:#1cd69e;border-radius:62% 42% 68% 32%;opacity:0.48;"></div>
-      <!-- Blob accent -->
-      <div style="position:absolute;top:-28px;left:-28px;width:120px;height:120px;background:#6366f1;border-radius:50%;opacity:0.07;filter:blur(18px);"></div>
-      <!-- Wave atas -->
-      <div style="position:absolute;top:0;left:0;right:0;height:126px;overflow:hidden;">
-        <svg viewBox="0 0 282 126" preserveAspectRatio="none" style="width:100%;height:100%;">
-          <path d="M0,52 C52,92 106,17 166,52 C215,82 250,46 282,60 L282,0 L0,0 Z" fill="rgba(19,168,122,0.10)"/>
-          <path d="M0,72 C72,120 148,26 216,72 C246,88 265,65 282,72 L282,0 L0,0 Z" fill="rgba(19,168,122,0.06)"/>
+      <div class="absolute inset-0 bg-[#18243a]"></div>
+
+      <!-- BLOB -->
+      <div
+        class="
+          absolute
+          -bottom-[8%]
+          -right-[10%]
+
+          w-[48%]
+          h-[42%]
+
+          bg-[#13a87a]
+          opacity-90
+
+          rounded-[52%_62%_42%_70%]
+        "
+      ></div>
+
+      <div
+        class="
+          absolute
+          bottom-[12%]
+          right-[5%]
+
+          w-[28%]
+          h-[24%]
+
+          bg-[#1cd69e]
+          opacity-40
+
+          rounded-[62%_42%_68%_32%]
+        "
+      ></div>
+
+      <!-- BLUR -->
+      <div
+        class="
+          absolute
+          -top-[8%]
+          -left-[8%]
+
+          w-[35%]
+          h-[25%]
+
+          rounded-full
+          bg-indigo-500/10
+          blur-2xl
+        "
+      ></div>
+
+      <!-- WAVE -->
+      <div class="absolute top-0 left-0 right-0 h-[28%] overflow-hidden">
+        <svg
+          viewBox="0 0 282 126"
+          preserveAspectRatio="none"
+          class="w-full h-full"
+        >
+          <path
+            d="M0,52 C52,92 106,17 166,52 C215,82 250,46 282,60 L282,0 L0,0 Z"
+            fill="rgba(19,168,122,0.10)"
+          />
+          <path
+            d="M0,72 C72,120 148,26 216,72 C246,88 265,65 282,72 L282,0 L0,0 Z"
+            fill="rgba(19,168,122,0.06)"
+          />
         </svg>
       </div>
-      <!-- Grid dots -->
-      <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:18px 18px;z-index:1;"></div>
-      <!-- Punch hole — harus sejajar dgn klip SVG -->
-      <div style="position:absolute;top:13px;left:50%;transform:translateX(-50%);width:23px;height:7px;border-radius:4px;background:rgba(0,0,0,0.55);border:1px solid rgba(255,255,255,0.07);z-index:20;"></div>
-      <!-- Edges -->
-      <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.20),transparent);z-index:20;"></div>
-      <div style="position:absolute;top:0;left:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.07),transparent);z-index:20;"></div>
 
-      <!-- CONTENT -->
-      <div style="position:relative;z-index:5;display:flex;flex-direction:column;align-items:flex-start;height:100%;padding:30px 20px 18px;">
-        <!-- Logo + Active badge -->
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;width:100%;">
-          <div style="width:31px;height:31px;background:rgba(255,255,255,0.07);border-radius:7px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.08);">
-            <i class="fa-solid fa-bolt-lightning" style="color:#13a87a;font-size:12px;"></i>
+      <!-- DOTS -->
+      <div
+        class="absolute inset-0 opacity-70"
+        style="
+          background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+          background-size: 16px 16px;
+        "
+      ></div>
+
+      <!-- HOLE -->
+      <div
+        class="
+          absolute
+          top-[3.5%]
+          left-1/2
+          -translate-x-1/2
+
+          w-[10%]
+          h-[1.8%]
+
+          rounded-full
+          bg-black/50
+          border border-white/10
+        "
+      ></div>
+
+      <!-- ===================== CONTENT ===================== -->
+      <div
+        class="
+          relative z-10
+          flex flex-col
+          h-full
+
+          p-[5%]
+        "
+      >
+
+        <!-- HEADER -->
+        <div class="flex items-center gap-[3%] w-full mb-[6%]">
+
+          <!-- ICON -->
+          <div
+            class="
+              w-[14%]
+              aspect-square
+
+              rounded-lg
+              bg-white/10
+              border border-white/10
+
+              flex items-center justify-center
+              shrink-0
+            "
+          >
+            <i class="fa-solid fa-bolt-lightning text-[#13a87a] text-[0.6rem] sm:text-xs"></i>
           </div>
-          <div>
-            <div style="font-size:12px;font-weight:700;color:#f1f5f9;letter-spacing:0.4px;line-height:1.1;">RIFKI<span style="color:#13a87a;">Syarip</span></div>
-            <div style="font-size:8px;color:rgba(255,255,255,0.36);letter-spacing:1.8px;text-transform:uppercase;"></div>
+
+          <!-- TEXT -->
+          <div class="min-w-0">
+            <h3
+              class="
+                text-[0.55rem]
+                xs:text-[0.62rem]
+                sm:text-[0.78rem]
+
+                font-bold
+                text-slate-100
+                truncate
+              "
+            >
+              RIFKI <span class="text-[#13a87a]">Syarip</span>
+            </h3>
+
+            <p
+              class="
+                text-[0.42rem]
+                xs:text-[0.5rem]
+                sm:text-[0.58rem]
+
+                tracking-[0.2em]
+                uppercase
+                text-white/40
+              "
+            >
+              WEB DEV
+            </p>
           </div>
-          <div style="margin-left:auto;font-size:7.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(19,168,122,0.18);color:#34d399;border:1px solid rgba(19,168,122,0.30);letter-spacing:1px;text-transform:uppercase;">ACTIVE</div>
+
+          <!-- ACTIVE -->
+          <div
+            class="
+              ml-auto
+
+              px-[3%]
+              py-[1.5%]
+
+              rounded-full
+
+              text-[0.36rem]
+              xs:text-[0.42rem]
+              sm:text-[0.5rem]
+
+              font-semibold
+              uppercase
+
+              border border-emerald-400/20
+              bg-emerald-400/10
+              text-emerald-300
+
+              whitespace-nowrap
+            "
+          >
+            ACTIVE
+          </div>
+
         </div>
-        <!-- Foto -->
-        <div style="width:100%;display:flex;justify-content:flex-end;margin-bottom:8px;">
-          <div style="width:84px;height:98px;border-radius:10px;overflow:hidden;border:2px solid rgba(255,255,255,0.10);box-shadow:0 6px 20px rgba(0,0,0,0.38);">
-            <img src="./img/foto-rifki.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:top center;">
+
+        <!-- PHOTO -->
+        <div class="flex justify-end mb-[6%]">
+
+          <div
+            class="
+              w-[32%]
+              aspect-[3/4]
+
+              rounded-xl
+              overflow-hidden
+
+              border-2 border-white/10
+              shadow-xl
+            "
+          >
+            <img
+              src="./img/foto-rifki.jpeg"
+              class="w-full h-full object-cover object-top"
+            />
           </div>
+
         </div>
-        <!-- Nama -->
-        <div style="margin-top:auto;width:100%;">
-          <div style="font-size:15.5px;font-weight:700;color:#f1f5f9;letter-spacing:0.2px;line-height:1.2;">Rifki Syaripatuloh</div>
-          <div style="font-size:8.5px;color:rgba(255,255,255,0.48);letter-spacing:2px;text-transform:uppercase;margin-top:3px;">IT Fresh Graduate</div>
-          <div style="font-family:'Courier New',monospace;font-size:8px;color:rgba(255,255,255,0.22);letter-spacing:2.5px;text-transform:uppercase;margin-top:6px;">EMP · 2026-0425</div>
-          <div style="width:100%;height:1px;background:rgba(255,255,255,0.07);margin:9px 0;"></div>
-          <!-- Chips -->
-          <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px;">
-            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(99,102,241,0.17);color:#a5b4fc;border:1px solid rgba(99,102,241,0.24);">Laravel</span>
-            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(56,189,248,0.14);color:#7dd3fc;border:1px solid rgba(56,189,248,0.22);">React</span>
-            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(19,168,122,0.14);color:#6ee7b7;border:1px solid rgba(19,168,122,0.22);">PHP</span>
-            <span style="font-size:7.5px;padding:2px 7px;border-radius:999px;background:rgba(251,191,36,0.13);color:#fde68a;border:1px solid rgba(251,191,36,0.22);">MySQL</span>
+
+        <!-- INFO -->
+        <div class="mt-auto w-full">
+
+          <!-- NAME -->
+          <h1
+            class="
+              text-[0.72rem]
+              xs:text-[0.85rem]
+              sm:text-[1rem]
+
+              font-bold
+              leading-tight
+              text-slate-100
+            "
+          >
+            Rifki Syaripatuloh
+          </h1>
+
+          <!-- JOB -->
+          <p
+            class="
+              mt-[2%]
+
+              text-[0.42rem]
+              xs:text-[0.5rem]
+              sm:text-[0.6rem]
+
+              uppercase
+              tracking-[0.2em]
+
+              text-white/50
+            "
+          >
+            IT Fresh Graduate
+          </p>
+
+          <!-- ID -->
+          <p
+            class="
+              mt-[4%]
+
+              text-[0.42rem]
+              xs:text-[0.5rem]
+              sm:text-[0.6rem]
+
+              uppercase
+              tracking-[0.22em]
+
+              text-white/25
+              font-mono
+            "
+          >
+            EMP · 2026-0425
+          </p>
+
+          <!-- LINE -->
+          <div class="w-full h-px bg-white/10 my-[5%]"></div>
+
+          <!-- SKILLS -->
+          <div class="flex flex-wrap gap-[2%] mb-[5%]">
+
+            <span
+              class="
+                px-[3%]
+                py-[1.2%]
+
+                rounded-full
+
+                text-[0.38rem]
+                xs:text-[0.45rem]
+                sm:text-[0.52rem]
+
+                bg-indigo-500/10
+                text-indigo-200
+                border border-indigo-400/20
+              "
+            >
+              Laravel
+            </span>
+
+            <span
+              class="
+                px-[3%]
+                py-[1.2%]
+
+                rounded-full
+
+                text-[0.38rem]
+                xs:text-[0.45rem]
+                sm:text-[0.52rem]
+
+                bg-sky-500/10
+                text-sky-200
+                border border-sky-400/20
+              "
+            >
+              React
+            </span>
+
+            <span
+              class="
+                px-[3%]
+                py-[1.2%]
+
+                rounded-full
+
+                text-[0.38rem]
+                xs:text-[0.45rem]
+                sm:text-[0.52rem]
+
+                bg-emerald-500/10
+                text-emerald-200
+                border border-emerald-400/20
+              "
+            >
+              PHP
+            </span>
+
+            <span
+              class="
+                px-[3%]
+                py-[1.2%]
+
+                rounded-full
+
+                text-[0.38rem]
+                xs:text-[0.45rem]
+                sm:text-[0.52rem]
+
+                bg-yellow-500/10
+                text-yellow-200
+                border border-yellow-400/20
+              "
+            >
+              MySQL
+            </span>
+
           </div>
-          <!-- Barcode -->
-          <div style="display:flex;align-items:stretch;height:23px;" id="barcodeEl"></div>
+
+          <!-- BARCODE -->
+          <div
+            id="barcodeEl"
+            class="
+              flex items-stretch
+
+              h-[5%]
+              min-h-[10px]
+              sm:min-h-[18px]
+            "
+          ></div>
+
         </div>
       </div>
 
-      <!-- Sheen -->
-      <div id="cardSheen" style="position:absolute;inset:0;pointer-events:none;z-index:15;transition:background 0.14s;"></div>
+      <!-- SHEEN -->
+      <div
+        id="cardSheen"
+        class="absolute inset-0 pointer-events-none z-20"
+      ></div>
+
     </div>
 
-    <!-- Ground shadow -->
-    <div class="ground-shadow" id="groundShadow"></div>
+    <!-- ===================== SHADOW ===================== -->
+    <div
+      id="groundShadow"
+      class="
+        mt-4
 
-  </div><!-- .id-scene -->
+        w-[75%]
+        h-[18px]
+
+        sm:h-[24px]
+
+        rounded-full
+        bg-black/40
+        blur-2xl
+      "
+    ></div>
+
+  </div>
 </div>
+</div>
+</div>
+
 
     <!-- RIGHT — TEXT -->
     <div class="text-center lg:text-left order-2" data-aos="fade-left" data-aos-delay="80">
